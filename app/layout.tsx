@@ -19,7 +19,7 @@ export const fontSans = FontSans({
 });
 
 export const metadata = {
-  title: siteConfig.name,
+  title: siteConfig.title,
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: siteConfig.authors,

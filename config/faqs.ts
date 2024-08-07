@@ -1,63 +1,63 @@
 export const FAQS_EN = [
   {
-    title: "What is a landing page?",
+    title: "What is AI Generative Fill?",
     content:
-      "A landing page is a standalone web page created specifically for a marketing or advertising campaign. It's where a visitor 'lands' after they click on a link in an email, or ads from Google, Bing, YouTube, Facebook, Instagram, Twitter, or similar places on the web. Unlike web pages, which typically have many goals and encourage exploration, landing pages are designed with a single focus or goal, known as a call to action (CTA).",
+      "AI Generative Fill is an advanced tool that uses artificial intelligence to extend and outpaint images. By selecting an area and providing a prompt, our AI generates and replaces that part of the image seamlessly. AI Generative Fill is perfect for both professionals and hobbyists.",
   },
   {
-    title: "How can I create a landing page?",
+    title: "What are the main features of AI Generative Fill?",
     content:
-      "Creating a landing page can be done in several steps: 1) Choose a landing page template that fits your campaign's needs or start from scratch. 2) Identify your landing page's objective and CTA. 3) Write compelling content that urges visitors to take action. 4) Incorporate design elements such as images, videos, and forms that align with your message. 5) Test your page's usability and mobile responsiveness. 6) Use SEO best practices to help your page get found. 7) Publish your landing page and monitor its performance to make adjustments as needed.",
+      "The main features of AI Generative Fill include:Image Outpainting: Extend images by filling in selected areas with AI-generated content using AI Generative Fill. Image Extender: Seamlessly blend generated content to enhance and expand photos with AI Generative Fill. Photo Restoration: Restore and repair old or damaged photos using AI Generative Fill. Creative Projects: Generate unique and creative images based on user prompts with AI Generative Fill.",
   },
   {
-    title: "Why is a landing page important?",
+    title: "Do I need any technical background to use AI Generative Fill?",
     content:
-      "Landing pages are crucial for any marketing strategy because they provide a targeted platform for converting visitors into leads or customers. Unlike general websites, landing pages focus the visitor's attention on a single offer, minimizing distractions and guiding them towards a specific action. This focused approach can significantly increase the effectiveness of your marketing campaigns, improve your ad performance, and enhance the overall user experience by providing them with the information or solution they were seeking.",
+      "No technical background is required to use AI Generative Fill. Our user-friendly interface makes it easy for anyone to start editing images with just a few clicks using AI Generative Fill.",
   },
   {
-    title: "Why choose our landing page boilerplate?",
+    title: "What are the use cases for AI Generative Fill?",
     content:
-      "Our landing page template is free, open-source, and powerful, making it ideal for various projects and marketing campaigns. It allows you to create a landing page in under an hour, simplifying the development process while also offering a high degree of customization and responsiveness.",
+      "AI Generative Fill is ideal for various scenarios, including: Restoring old photos by filling in missing or damaged parts with AI Generative Fill. Creating unique images for digital art, marketing, and social media with AI Generative Fill. Enhancing and extending existing photos for a more complete look using AI Generative Fill. Professional image editing and design projects with AI Generative Fill.",
   },
   {
-    title: "What skills do I need to use this template?",
+    title: "How do I start using AI Generative Fill?",
     content:
-      "To use our landing page template, you only need basic web editing skills. The design of the template is intended to be easy for non-technical users to get started with, while also providing high customizability for experienced developers.",
+      "Simply upload the image you want to edit, select the area to be replaced, enter your prompt, and click start. AI Generative Fill will automatically generate and replace the selected area with high-quality content using AI Generative Fill.",
   },
   {
-    title: "How do I get started with the landing page template?",
+    title: "How accurate is AI Generative Fill in matching the existing image style?",
     content:
-      "Getting started is very simple. Just download the source code from our GitHub repository, edit the text and images as needed, and then deploy it to your server.",
+      "AI Generative Fill uses advanced algorithms to match the style, color, and texture of the existing image, ensuring seamless integration and high-quality results.",
   },
   {
-    title: "Does the landing page template support responsive design?",
+    title: "Can AI Generative Fill be used for commercial purposes?",
     content:
-      "Yes, our landing page template supports responsive design, ensuring that your webpage displays perfectly on a variety of devices, whether desktop, tablet, or smartphone.",
+      "Yes, AI Generative Fill can be used for commercial purposes, including marketing materials, product images, and creative projects, provided you comply with our terms of service.",
   },
   {
-    title: "Can I use this template for a commercial project?",
+    title: "How long does it take to process an image with AI Generative Fill?",
     content:
-      "Absolutely. Our template is open-source, and you can use it for any type of project, including commercial purposes. We encourage users to utilize this template to create and optimize their online projects.",
+      "The processing time for AI Generative Fill varies depending on the complexity of the image and the selected area, but most tasks are completed within a few minutes.",
   },
   {
-    title: "Do you offer any customization services?",
+    title: "Is there a limit to the size of the area that can be filled using AI Generative Fill?",
     content:
-      "We accept paid custom development of landing pages. Please contact us via email at weijunext@gmail.com or Twitter @weijunext.",
+      "While AI Generative Fill can handle large areas, the quality of the generated content may vary. For best results, it's recommended to use smaller, more manageable areas.",
   },
   {
-    title: "Are there any restrictions on using this template?",
+    title: "What file formats are supported by AI Generative Fill?",
     content:
-      "No. You are free to use and modify this template. At the same time, we encourage developers to submit PRs to help improve this landing page template together.",
+      "AI Generative Fill supports popular image formats such as JPEG, PNG, and TIFF, making it versatile and easy to use with different types of images.",
   },
   {
-    title: "Does this template include SEO optimization features?",
+    title: "How secure is my data when using AI Generative Fill?",
     content:
-      "Yes, our template includes basic SEO optimization features to help your webpage achieve better rankings in search engines.",
+      "AI Generative Fill takes data security seriously. All uploaded images and user data are encrypted and processed securely, ensuring your privacy and protection.",
   },
   {
-    title: "What should I do if I encounter problems using the template?",
+    title: "Can I preview the generated image before finalizing the edit with AI Generative Fill?",
     content:
-      "If you encounter any issues while using the template, please contact us via Twitter @weijunext.",
+      "Yes, AI Generative Fill provides a preview option so you can see the generated image and make any necessary adjustments before finalizing the edit.",
   },
 ];
 

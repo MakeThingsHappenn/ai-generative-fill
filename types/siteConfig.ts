@@ -20,6 +20,7 @@ export type ThemeColor = {
 }
 export type SiteConfig = {
   name: string
+  title: string
   description: string
   url: string
   keywords: string[]

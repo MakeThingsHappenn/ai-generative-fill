@@ -14,14 +14,14 @@ const links = [
     label: "Features",
     href: "#Features",
   },
-  {
-    label: "Pricing",
-    href: "#Pricing",
-  },
-  {
-    label: "Wall of Love",
-    href: "#WallOfLove",
-  },
+  // {
+  //   label: "Pricing",
+  //   href: "#Pricing",
+  // },
+  // {
+  //   label: "Wall of Love",
+  //   href: "#WallOfLove",
+  // },
   {
     label: "FAQ",
     href: "#FAQ",
@@ -69,7 +69,7 @@ const Header = () => {
         </ul>
 
         <div className="hidden md:flex items-center gap-x-6">
-          <HeaderLinks />
+          {/* <HeaderLinks /> */}
           <ThemedButton />
           <LangSwitcher />
         </div>

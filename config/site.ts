@@ -6,21 +6,22 @@ import { SiBuymeacoffee, SiJuejin } from "react-icons/si";
 const OPEN_SOURCE_URL = 'https://github.com/weijunext/landing-page-boilerplate'
 
 const baseSiteConfig = {
-  name: "Landing page boilerplate",
+  name: "AI Generative Fill",
+  title: "AI Generative Fill - Advanced Image Outpainting and Extender Tool",
   description:
-    "A free, open-source, and powerful landing page boilerplate, ideal for various projects, enabling you to create a landing page in under an hour.",
+    "Discover AI Generative Fill, the ultimate tool for image outpainting and extending. With AI Generative Fill, you can select an area, provide a prompt, and let our AI replace it with stunning, generated images. Perfect for photo restoration, creative projects, and more.",
   url: "https://landingpage.weijunext.com",
   ogImage: "https://landingpage.weijunext.com/og.png",
   metadataBase: '/',
-  keywords: ["landing page boilerplate", "landing page template", "awesome landing page", "next.js landing page"],
+  keywords: [],
   authors: [
     {
-      name: "weijunext",
-      url: "https://weijunext.com",
-      twitter: 'https://twitter.com/weijunext',
+      name: "",
+      url: "",
+      twitter: '',
     }
   ],
-  creator: '@weijunext',
+  creator: '@kristennn',
   openSourceURL: 'https://github.com/weijunext/landing-page-boilerplate',
   themeColors: [
     { media: '(prefers-color-scheme: light)', color: 'white' },

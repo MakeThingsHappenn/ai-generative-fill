@@ -1,45 +1,50 @@
 import { LucideIcon, MagnetIcon } from "lucide-react";
 import { IconType } from "react-icons";
 import { BsGithub } from "react-icons/bs";
+import { CgWebsite } from "react-icons/cg";
 import { FaToolbox } from "react-icons/fa";
 import { FaEarthAsia, FaMobileScreenButton } from "react-icons/fa6";
-import { MdCloudUpload } from "react-icons/md";
+import { LuPictureInPicture } from "react-icons/lu";
+import { MdCloudUpload, MdPictureInPicture, MdPreview } from "react-icons/md";
+import { PiSelectionBackgroundBold } from "react-icons/pi";
+import { TbBlendMode } from "react-icons/tb";
+
 
 export const FEATURES_EN = [
   {
-    title: "Open Source Advantage",
-    content: "Completely free with a wealth of customization options.",
-    icon: BsGithub,
+    title: "Advanced Image Outpainting",
+    content: "Extend your images seamlessly by filling selected areas with AI-generated content that matches the original style and texture.",
+    icon: LuPictureInPicture,
   },
   {
-    title: "Responsive Design",
+    title: "Intelligent Image Extender",
     content:
-      "Templates meticulously designed to ensure optimal display on any device.",
-    icon: FaMobileScreenButton,
+      "Enhance and expand your photos with our AI-driven tool that blends generated content flawlessly into existing images.",
+    icon: MdPictureInPicture,
   },
   {
-    title: "Easy Customization",
+    title: "Real-Time Preview",
     content:
-      "Effortlessly change colors, fonts, and layouts without any coding knowledge.",
-    icon: FaToolbox,
+      "Instantly preview the AI-generated content before applying changes to ensure perfect results and make necessary adjustments on the fly.",
+    icon: MdPreview,
   },
   {
-    title: "SEO Optimized",
+    title: "Seamless Background Replacement",
     content:
-      "Templates built with search engine optimization in mind to enhance your website's discoverability.",
-    icon: MagnetIcon,
+      "Effortlessly replace backgrounds in your images by selecting the desired area and letting the AI fill it with new, contextually accurate content.",
+    icon: PiSelectionBackgroundBold,
   },
   {
-    title: "One-Click Deployment",
+    title: "Adaptive Texture Blending",
     content:
-      "Tightly integrated with leading web hosting services for instant website publishing.",
-    icon: MdCloudUpload,
+      "Utilize advanced algorithms to blend generated textures and patterns smoothly with the original image, maintaining a cohesive look.",
+    icon: TbBlendMode,
   },
   {
-    title: "Globalization Support",
+    title: "User-Friendly Interface",
     content:
-      "Supports multiple languages, making your website attractive to a global audience.",
-    icon: FaEarthAsia,
+      "Enjoy an intuitive and easy-to-use interface that allows anyone to start editing images with AI Generative Fill, no technical skills required.",
+    icon: CgWebsite,
   },
 ];
 

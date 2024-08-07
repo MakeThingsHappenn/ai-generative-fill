@@ -1,8 +1,8 @@
 {
   "Hero": {
-    "title1": "Ship",
-    "title2": "Landing Page",
-    "title3": "Fast",
+    "title1": "Online",
+    "title2": "AI Generative Fill",
+    "title3": "For free",
     "description": "A free, open-source, and powerful landing page boilerplate, ideal for various projects, enabling you to create a landing page in under an hour."
   },
   "SocialProof": {
@@ -29,15 +29,15 @@
     "description": "Here are some of the most frequently asked questions."
   },
   "CTA": {
-    "title": "Build Your Landing Page Now",
-    "description1": "Build",
-    "description2": "your landing page,",
-    "description3": "show",
-    "description4": "your product, and",
-    "description5": "start earning",
+    "title": "Use AI Generative Fill Now",
+    "description1": "Select",
+    "description2": "an area, ",
+    "description3": "provide",
+    "description4": "your prompt, and",
+    "description5": "generate new creative picture",
     "description6": "!"
   },
   "CTAButton": {
-    "title": "Get Boilerplate"
+    "title": "Start to Use"
   }
 }
