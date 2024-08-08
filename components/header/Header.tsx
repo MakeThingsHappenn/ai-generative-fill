@@ -71,7 +71,7 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-x-6">
           {/* <HeaderLinks /> */}
           <ThemedButton />
-          <LangSwitcher />
+          {/* <LangSwitcher /> */}
         </div>
 
         <div className="md:hidden">
