@@ -58,6 +58,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        logo: '#F23589',
+      },
+      backgroundColor: {
+        headerBackground: "rgb(242, 242, 242)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -90,7 +94,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), nextui()],
+  plugins: [require("tailwindcss-animate"), nextui(), require('daisyui')],
 } satisfies Config
 
 export default config
