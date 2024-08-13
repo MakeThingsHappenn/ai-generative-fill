@@ -39,5 +39,22 @@
   },
   "CTAButton": {
     "title": "Try Generative Fill For Free"
+  },
+  "HowToUse": {
+    "title": "How to use Generative Fill AI",
+    "steps": [
+      {
+        "title": "Step 1: Upload the Picture",
+        "description": "First, Upload the picture you wish to shape."
+      },
+      {
+        "title": "Step 2: Enter a prompt",
+        "description": "Enter the description or keywords related to the image you want to create."
+      },
+      {
+        "title": "Step 3: Generate the Image",
+        "description": "Click Generate and in seconds, you will get the result."
+      }
+    ]
   }
 }

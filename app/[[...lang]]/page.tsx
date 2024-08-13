@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import HowToUse from "@/components/home/HowToUse";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
 
 export default async function HomePage({
@@ -16,6 +17,7 @@ export default async function HomePage({
     <>
       {/* Hero Section */}
       <Hero locale={dict.Hero} CTALocale={dict.CTAButton} />
+      <HowToUse locale={dict.HowToUse} CTALocale={dict.CTAButton} />
     </>
   );
 
