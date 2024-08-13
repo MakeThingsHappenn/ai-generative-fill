@@ -1,54 +1,48 @@
 import { ALL_FEATURES } from "@/config/feature";
-import React from "react";
-import { RoughNotation } from "react-rough-notation";
 
 const Feature = ({
-  id,
-  locale,
   langName,
+  CTALocale,
 }: {
-  id: string;
-  locale: any;
-  langName: string;
+  langName: string
+  CTALocale: any;
 }) => {
   const FEATURES = ALL_FEATURES[`FEATURES_${langName.toUpperCase()}`];
   return (
-    <section
-      id={id}
-      className="flex flex-col justify-center lg:max-w-7xl md:max-w-5xl w-[95%] mx-auto md:gap-14 py-6"
-    >
-      <h2 className="text-center text-white">
-        <RoughNotation type="highlight" show={true} color="#2563EB">
-          {locale.title}
-        </RoughNotation>
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {FEATURES?.map((feature, index) => (
-          <div
-            key={feature.title}
-            className={`
-              flex flex-col items-center text-center px-8 py-6 border-b
-              ${index === 0 ? "md:border-r" : ""}
-              ${index === 1 ? "lg:border-r" : ""}
-              ${index === 2 ? "md:border-r lg:border-r-0" : ""}
-              ${index === 3 ? "lg:border-b-0 lg:border-r" : ""}
-              ${index === 4 ? "md:border-b-0 md:border-r" : ""}
-              ${index === 5 ? "border-b-0 border-r-0" : ""}
-            `}
-          >
-            <div className="p-4 w-16 h-16 dark:text-white rounded-full flex items-center justify-center">
-              {feature.icon &&
-                React.createElement(feature.icon, { className: "text-2xl" })}
-            </div>
-            <h2 className={"text-xl font-semibold mb-2"}>{feature.title}</h2>
-            <p className="text-slate-700 dark:text-slate-400">
-              {feature.content}
-            </p>
-          </div>
-        ))}
+    <>
+      <div className="container mx-auto">
+        {
+          FEATURES.map((feature, i) => {
+            return (
+              <section>
+                <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
+                  <div className="grid grid-cols-1 items-center gap-8 sm:gap-20 lg:grid-cols-2">
+                    {i % 2 === 0 && (
+                      <div className="">
+                        <img src={feature.img} alt="Font art showing a quote" className="mx-auto inline-block h-full w-full max-w-[640px] object-cover rounded-lg shadow-lg" />
+                      </div>
+                    )}
+                    <div className="max-w-[720px] lg:max-w-lg">
+                      <h2 className="mb-4 text-3xl font-bold md:text-5xl">{feature.title}</h2>
+                      <div className="mb-6 max-w-[480px] md:mb-10 lg:mb-12">
+                        <p className="text-[#636262]">{feature.description}</p>
+                      </div>
+                      <a className="btn btn-primary btn-wide" href="/app">{CTALocale.title}</a>
+                    </div>
+                    {i % 2 === 1 && (
+                      <div className="">
+                        <img src={feature.img} alt="Font art showing a quote" className="mx-auto inline-block h-full w-full max-w-[640px] object-cover rounded-lg shadow-lg" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </section>
+            )
+          })
+        }
       </div>
-    </section>
-  );
+    </>
+  )
 };
 
 export default Feature;
