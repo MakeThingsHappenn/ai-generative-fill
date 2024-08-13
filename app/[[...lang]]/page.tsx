@@ -1,10 +1,22 @@
+import Hero from "@/components/home/Hero";
+import { defaultLocale, getDictionary } from "@/lib/i18n";
 
-const HomePage = () => {
+export default async function HomePage({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
+  // const langName = (lang && lang[0]) || defaultLocale;
+  let langName =
+    lang && lang[0] && lang[0] !== "index" ? lang[0] : defaultLocale;
+
+  const dict = await getDictionary(langName);
+
   return (
-    <div>
-      测试一下
-    </div>
-  )
-}
+    <>
+      {/* Hero Section */}
+      <Hero locale={dict.Hero} CTALocale={dict.CTAButton} />
+    </>
+  );
 
-export default HomePage
+}

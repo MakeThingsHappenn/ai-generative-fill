@@ -22,6 +22,7 @@ const baseSiteConfig = {
     }
   ],
   creator: '@kristennn',
+  buttonText: 'Get Started',
   openSourceURL: 'https://github.com/weijunext/landing-page-boilerplate',
   themeColors: [
     { media: '(prefers-color-scheme: light)', color: 'white' },

@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { RocketIcon } from "lucide-react";
 import Link from "next/link";
 
 const CTAButton = ({ locale }: { locale: any }) => {
@@ -9,14 +7,7 @@ const CTAButton = ({ locale }: { locale: any }) => {
       target="_blank"
       rel="noopener noreferrer nofollow"
     >
-      <Button
-        variant="default"
-        className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white"
-        aria-label="Get Boilerplate"
-      >
-        <RocketIcon />
-        {locale.title}
-      </Button>
+      <button className="btn btn-primary">{locale.title}</button>
     </Link>
   );
 };

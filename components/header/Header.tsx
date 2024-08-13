@@ -62,7 +62,7 @@ const Header = () => {
           <a className="link link-hover" title="FAQ" href="/#faq">FAQ</a>
         </div>
         <div className="hidden lg:flex lg:justify-end lg:flex-1">
-          <button className="btn btn-primary">Get Start</button>
+          <button className="btn btn-primary">{siteConfig.buttonText}</button>
         </div>
 
         {/* 小屏折叠菜单 */}
@@ -126,7 +126,7 @@ const Header = () => {
                 </nav>
                 <div className="divider"></div>
                 <div className="flex flex-col">
-                  <button className="btn btn-primary">Get Start</button>
+                  <button className="btn btn-primary">{siteConfig.buttonText}</button>
                 </div>
               </div>
             </div>
