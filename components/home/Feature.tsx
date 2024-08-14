@@ -14,7 +14,7 @@ const Feature = ({
         {
           FEATURES.map((feature, i) => {
             return (
-              <section>
+              <section key={feature.title}>
                 <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
                   <div className="grid grid-cols-1 items-center gap-8 sm:gap-20 lg:grid-cols-2">
                     {i % 2 === 0 && (

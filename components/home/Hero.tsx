@@ -29,9 +29,9 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
             <div className="flex-col md:flex-row justify-center items-center md:items-start gap-3 hidden sm:flex">
               <div className="-space-x-5 avatar-group justy-start">
                 {
-                  Array(5).fill(null).map(item => {
+                  Array(5).fill(null).map((item, i) => {
                     return (
-                      <div className="avatar w-12 h-12">
+                      <div key={i} className="avatar w-12 h-12">
                         <img src="/home/avatar.png" alt="User" width="50" height="50" decoding="async" data-nimg="1" />
                       </div>
                     )
@@ -41,9 +41,9 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
               <div className="flex flex-col justify-center items-center md:items-start gap-1">
                 <div className="rating rating-sm">
                   {
-                    Array(5).fill(null).map(item => {
+                    Array(5).fill(null).map((item, i) => {
                       return (
-                        <input defaultChecked type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-500" />
+                        <input key={i} defaultChecked type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-500" />
                       )
                     })
                   }

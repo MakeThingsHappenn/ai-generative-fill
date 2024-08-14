@@ -114,6 +114,7 @@ const Header = () => {
                         <Link
                           href={link.href}
                           aria-label={link.label}
+                          key={link.label}
                           title={link.label}
                           className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
                           onClick={() => setIsMenuOpen(false)}
