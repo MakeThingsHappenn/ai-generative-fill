@@ -4,6 +4,7 @@ import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { CgClose } from "react-icons/cg";
+import "./Header.css";
 
 const links = [
   {
@@ -44,7 +45,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="py-10 mx-auto px-4 sm:px-6 lg:px-8 bg-headerBackground h-4">
-      <nav className="container flex items-center justify-between px-8 mx-auto h-full max-w-7xl" >
+      <nav className="container flex items-center justify-between px-8 mx-auto h-full max-2xl:w-full" >
         <div className="flex lg:flex-1">
           <a className="flex items-center gap-2 shrink-0 " title={siteConfig.name} href="/">
             <img src="/logo.png" alt="Illusion Diffusion logo" width="32" height="32" decoding="async" data-nimg="1" className="w-10 sm:w-12" />

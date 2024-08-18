@@ -2,7 +2,7 @@ import { nextui } from "@nextui-org/react";
 import type { Config } from "tailwindcss";
 
 const config = {
-  darkMode: "class",
+  // darkMode: "class",
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -91,6 +91,13 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "scrolling-banner": "scrolling-banner var(--duration) linear infinite",
         "scrolling-banner-vertical": "scrolling-banner-vertical var(--duration) linear infinite",
+      },
+      screens: {
+        'max-2xl': { 'max': '1536px' },
+        'max-xl': { 'max': '1280px' },
+        'max-lg': { 'max': '1024px' },
+        'max-md': { 'max': '768px' },
+        'max-sm': { 'max': '640px' },
       },
     },
   },

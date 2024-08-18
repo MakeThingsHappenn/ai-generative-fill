@@ -1,5 +1,6 @@
 import CallSection from "@/components/home/CallSection";
 import Discover from "@/components/home/Discover";
+import FAQ from "@/components/home/FAQ";
 import Feature from "@/components/home/Feature";
 import Hero from "@/components/home/Hero";
 import HowItWork from "@/components/home/HowItWork";
@@ -28,6 +29,7 @@ export default async function HomePage({
       <CallSection CTALocale={dict.CTAButton} />
       <HowItWork />
       <Pricing id="pricing" locale={dict.Pricing} langName={langName} />
+      <FAQ id="faq" locale={dict.FAQ} langName={langName} />
     </>
   );
 
