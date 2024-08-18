@@ -1,10 +1,9 @@
 import { siteConfig } from "@/config/site";
 
-const Footer = () => {
+const Footer = ({ lang }: { lang: string }) => {
   const d = new Date();
   const currentYear = d.getFullYear();
   const { authors } = siteConfig;
-
   return (
     <>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -71,10 +70,10 @@ const Footer = () => {
                   <h3 className="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
                   <ul role="list" className="mt-6 space-y-4">
                     <li>
-                      <a href="/privacy-policy" className="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
+                      <a href={'/' + lang + '/privacy'} className="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
                     </li>
                     <li>
-                      <a href="/tos" className="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms of Service</a>
+                      <a href={'/' + lang + '/tos'} className="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms of Service</a>
                     </li>
                   </ul>
                 </div>

@@ -55,7 +55,7 @@ export default async function RootLayout({
         > */}
         <Header />
         <main>{children}</main>
-        <Footer />
+        <Footer lang={lang} />
         {/* <Footer /> */}
         <Analytics />
         <TailwindIndicator />
