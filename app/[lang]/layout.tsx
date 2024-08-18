@@ -1,9 +1,8 @@
 import BaiDuAnalytics from "@/app/BaiDuAnalytics";
 import GoogleAnalytics from "@/app/GoogleAnalytics";
-import { TailwindIndicator } from "@/components/TailwindIndicator";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
+import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { siteConfig } from "@/config/site";
 import { defaultLocale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -38,10 +37,10 @@ export default async function RootLayout({
   params: { lang },
 }: {
   children: React.ReactNode;
-  params: { lang: string[] | undefined };
+  params: { lang: string };
 }) {
   return (
-    <html lang={(lang && lang[0]) || defaultLocale} suppressHydrationWarning>
+    <html lang={(lang) || defaultLocale} suppressHydrationWarning>
       <head />
       <body
         className={cn(
@@ -49,17 +48,18 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme={siteConfig.nextThemeColor}
           enableSystem
-        >
-          <Header />
-          <main className="flex flex-col items-center py-6">{children}</main>
-          <Footer />
-          <Analytics />
-          <TailwindIndicator />
-        </ThemeProvider>
+        > */}
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        {/* <Footer /> */}
+        <Analytics />
+        <TailwindIndicator />
+        {/* </ThemeProvider> */}
         {process.env.NODE_ENV === "development" ? (
           <></>
         ) : (

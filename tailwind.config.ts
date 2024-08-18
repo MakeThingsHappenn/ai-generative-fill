@@ -2,7 +2,7 @@ import { nextui } from "@nextui-org/react";
 import type { Config } from "tailwindcss";
 
 const config = {
-  // darkMode: "class",
+  darkMode: "class",
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -100,6 +100,9 @@ const config = {
         'max-sm': { 'max': '640px' },
       },
     },
+  },
+  daisyui: {
+    themes: ['light']
   },
   plugins: [require("tailwindcss-animate"), nextui(), require('daisyui')],
 } satisfies Config

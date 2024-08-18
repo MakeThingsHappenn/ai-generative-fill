@@ -14,9 +14,7 @@ export default async function HomePage({
 }: {
   params: { lang: string };
 }) {
-  // const langName = (lang && lang[0]) || defaultLocale;
-  let langName =
-    lang && lang[0] && lang[0] !== "index" ? lang[0] : defaultLocale;
+  let langName = lang || defaultLocale
 
   const dict = await getDictionary(langName);
 

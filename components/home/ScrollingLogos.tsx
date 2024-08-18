@@ -19,9 +19,8 @@ const ScrollingLogos = () => {
               style={{
                 objectFit: "cover", // cover, contain, none
               }}
-              className={`${
-                theme === "dark" ? "filter dark:invert grayscale" : ""
-              } hover:filter-none transition-all duration-300 cursor-pointer text-gray-500`}
+              className={`${theme === "dark" ? "filter dark:invert grayscale" : ""
+                } hover:filter-none transition-all duration-300 cursor-pointer text-gray-500`}
             />
           </div>
         ))}
