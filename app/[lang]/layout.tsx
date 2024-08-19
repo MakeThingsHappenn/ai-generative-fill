@@ -40,7 +40,7 @@ export default async function RootLayout({
   params: { lang: string };
 }) {
   return (
-    <html lang={(lang) || defaultLocale} suppressHydrationWarning>
+    <html lang={lang || defaultLocale} suppressHydrationWarning>
       <head />
       <body
         className={cn(
@@ -53,7 +53,7 @@ export default async function RootLayout({
           defaultTheme={siteConfig.nextThemeColor}
           enableSystem
         > */}
-        <Header />
+        <Header lang={lang} />
         <main>{children}</main>
         <Footer lang={lang} />
         {/* <Footer /> */}
@@ -72,3 +72,4 @@ export default async function RootLayout({
     </html>
   );
 }
+

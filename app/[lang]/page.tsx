@@ -8,29 +8,42 @@ import HowItWork from "@/components/home/HowItWork";
 import HowToUse from "@/components/home/HowToUse";
 import Pricing from "@/components/home/Pricing";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
+import { HEADER_LINK_HREFS } from "@/config/header";
 
 export default async function HomePage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
-  let langName = lang || defaultLocale
+  let langName = lang || defaultLocale;
 
   const dict = await getDictionary(langName);
+
+  const getHrefByLabel = (label: string) => {
+    return HEADER_LINK_HREFS.filter((item) => item.label === label)[0]["href"];
+  };
 
   return (
     <>
       {/* Hero Section */}
       <Hero locale={dict.Hero} CTALocale={dict.CTAButton} />
-      <HowToUse locale={dict.HowToUse} CTALocale={dict.CTAButton} />
-      <Feature langName={langName} CTALocale={dict.CTAButton} />
-      <Discover />
-      <CallSection CTALocale={dict.CTAButton} />
-      <HowItWork />
-      <Pricing id="pricing" locale={dict.Pricing} langName={langName} />
-      <FAQ id="faq" locale={dict.FAQ} langName={langName} />
-      <CallSection2 CTALocale={dict.CTAButton} />
+      <HowToUse
+        id={getHrefByLabel("How to Use")}
+        locale={dict.HowToUse}
+        CTALocale={dict.CTAButton}
+      />
+      <Feature
+        id={getHrefByLabel("Features")}
+        langName={langName}
+        CTALocale={dict.CTAButton}
+      />
+      <Discover locale={dict.Discover} />
+      <CallSection locale={dict.CallSection} CTALocale={dict.CTAButton} />
+      <HowItWork id={getHrefByLabel("How it Work")} locale={dict.HowItWork} />
+      <Pricing id={getHrefByLabel("Pricing")} locale={dict.Pricing} />
+      <FAQ id={getHrefByLabel("FAQ")} langName={langName} />
+      <CallSection2 locale={dict.CallSection2} CTALocale={dict.CTAButton} />
     </>
   );
-
 }
+

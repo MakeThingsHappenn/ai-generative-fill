@@ -1,18 +1,33 @@
 {
-  "css.validate": false,
-  "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "explicit"
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "headwind.runOnSave": false,
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "eslint.validate": ["javascript", "javascriptreact", "typescript"],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "commentTranslate.source": "Bing",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "i18n-ally.localesPaths": [
+    "apps/cryptoloan/public/locales",
+    "apps/header/public/locales"
+  ],
   "cSpell.words": [
-    "contentlayer",
-    "lemonsqueezy"
-  ]
+    "pledgeable"
+  ],
+  "nuxt.isNuxtApp": false
 }

@@ -2,65 +2,60 @@
 import { siteConfig } from "@/config/site";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CgClose } from "react-icons/cg";
+import { HEADER_LINK_HREFS } from "@/config/header";
+import { useRouter } from "next/router";
 import "./Header.css";
 
-const links = [
-  {
-    label: 'How to Use',
-    href: '#HowToUse'
-  },
-  {
-    label: 'Playground',
-    href: '/Playground'
-  },
-  {
-    label: 'Pricing',
-    href: '#Pricing'
-  },
-  {
-    label: 'FAQ',
-    href: '#FAQ'
-  },
-  // {
-  //   label: "Features",
-  //   href: "#Features",
-  // },
-  // {
-  //   label: "Pricing",
-  //   href: "#Pricing",
-  // },
-  // {
-  //   label: "Wall of Love",
-  //   href: "#WallOfLove",
-  // },
-  // {
-  //   label: "FAQ",
-  //   href: "#FAQ",
-  // },
-];
+const links = HEADER_LINK_HREFS;
 
-const Header = () => {
+const Header = ({ lang }: { lang: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="py-10 mx-auto px-4 sm:px-6 lg:px-8 bg-headerBackground h-4">
-      <nav className="container flex items-center justify-between px-8 mx-auto h-full max-2xl:w-full" >
+      <nav className="container flex items-center justify-between px-8 mx-auto h-full max-2xl:w-full">
         <div className="flex lg:flex-1">
-          <a className="flex items-center gap-2 shrink-0 " title={siteConfig.name} href="/">
-            <img src="/logo.png" alt="Illusion Diffusion logo" width="32" height="32" decoding="async" data-nimg="1" className="w-10 sm:w-12" />
-            <span className="font-extrabold text-xl sm:text-2xl text-logo">{siteConfig.name}</span>
+          <a
+            className="flex items-center gap-2 shrink-0 "
+            title={siteConfig.name}
+            href="/"
+          >
+            <img
+              src="/logo.png"
+              alt="Illusion Diffusion logo"
+              width="32"
+              height="32"
+              decoding="async"
+              data-nimg="1"
+              className="w-10 sm:w-12"
+            />
+            <span className="font-extrabold text-xl sm:text-2xl text-logo">
+              {siteConfig.name}
+            </span>
           </a>
         </div>
         <div className="flex lg:hidden">
-          <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"></button>
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+          ></button>
           <span className="sr-only">Open main menu</span>
         </div>
         <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
-          <a className="link link-hover" title="How To Use" href="/#HowToUse">How To Use</a>
-          <a className="link link-hover" title="Playground" href="/playground">Playground</a>
-          <a className="link link-hover" title="Pricing" href="/#pricing">Pricing</a>
-          <a className="link link-hover" title="FAQ" href="/#faq">FAQ</a>
+          {links.map((link) => {
+            return (
+              <a
+                key={link.href}
+                className="link link-hover"
+                title={link.label}
+                href={"/" + lang + "/" + link.href}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
         <div className="hidden lg:flex lg:justify-end lg:flex-1">
           <button className="btn btn-primary">{siteConfig.buttonText}</button>
@@ -94,7 +89,9 @@ const Header = () => {
                         width={32}
                         height={32}
                       /> */}
-                      <span className="font-extrabold text-xl sm:text-2xl text-pink-500">{siteConfig.name}</span>
+                      <span className="font-extrabold text-xl sm:text-2xl text-pink-500">
+                        {siteConfig.name}
+                      </span>
                     </Link>
                   </div>
                   <div>
@@ -128,15 +125,18 @@ const Header = () => {
                 </nav>
                 <div className="divider"></div>
                 <div className="flex flex-col">
-                  <button className="btn btn-primary">{siteConfig.buttonText}</button>
+                  <button className="btn btn-primary">
+                    {siteConfig.buttonText}
+                  </button>
                 </div>
               </div>
             </div>
           )}
         </div>
       </nav>
-    </header >
+    </header>
   );
 };
 
 export default Header;
+

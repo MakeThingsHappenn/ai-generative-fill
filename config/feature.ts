@@ -1,15 +1,14 @@
-
-
 export const FEATURES_EN = [
   {
-    title: "Words Reimagined as Visual Symphony.",
-    description: "Give life to your favorite quotes, transform any text into a landscape of visual wonder. Let Illusion Diffusion turn your words into a masterpiece.",
+    title: "Instant Image Transformation.",
+    description:
+      "Select any part of your image, type a prompt, and watch AI Generative Fill generate new content instantly. Add elements, alter scenes, or create new visuals in seconds.",
     img: "/home/5.png",
   },
   {
-    title: "Brand Identities Redrawn by Imagination.",
+    title: "Creative Control at Your Fingertips.",
     description:
-      "Redefine your logo by blending it with the aesthetics of nature and art. Illusion Diffusion invites you to envision your brand like never before.",
+      "Guide the AI with simple prompts to seamlessly blend new objects into your image. Creativity is made simple—no design skills needed.",
     img: "/home/6.png",
   },
 ];
@@ -35,7 +34,8 @@ export const FEATURES_JA = [
   },
   {
     title: "レスポンシブデザイン",
-    description: "どのデバイス上でも最適に表示されるように細心のデザインを施したテンプレート。",
+    description:
+      "どのデバイス上でも最適に表示されるように細心のデザインを施したテンプレート。",
     img: "/home/5.png",
   },
 ];
@@ -56,12 +56,14 @@ export const FEATURES_AR = [
 export const FEATURES_ES = [
   {
     title: "Ventaja del Código Abierto",
-    description: "Completamente gratuito con una riqueza de opciones de personalización.",
+    description:
+      "Completamente gratuito con una riqueza de opciones de personalización.",
     img: "/home/5.png",
   },
   {
     title: "Diseño Responsivo",
-    description: "Plantillas diseñadas meticulosamente para garantizar una visualización óptima en cualquier dispositivo.",
+    description:
+      "Plantillas diseñadas meticulosamente para garantizar una visualización óptima en cualquier dispositivo.",
     img: "/home/5.png",
   },
 ];
@@ -74,7 +76,8 @@ export const FEATURES_RU = [
   },
   {
     title: "Адаптивный Дизайн",
-    description: "Шаблоны, тщательно разработанные для обеспечения оптимального отображения на любом устройстве.",
+    description:
+      "Шаблоны, тщательно разработанные для обеспечения оптимального отображения на любом устройстве.",
     img: "/home/5.png",
   },
 ];
@@ -93,5 +96,6 @@ export const ALL_FEATURES: FeaturesCollection = {
   FEATURES_JA,
   FEATURES_AR,
   FEATURES_ES,
-  FEATURES_RU
-}
+  FEATURES_RU,
+};
+

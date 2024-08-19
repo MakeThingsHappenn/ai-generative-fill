@@ -1,9 +1,10 @@
 {
   "Hero": {
-    "title1": "Online",
-    "title2": "AI Generative Fill",
-    "title3": "For free",
-    "description": "A free, open-source, and powerful landing page boilerplate, ideal for various projects, enabling you to create a landing page in under an hour."
+    "title": "Redefine Your Image Creations",
+    "description": "Upload an image, select an area, and let AI Generative Fill create something new within seconds. Start transforming your images with just a prompt—unleash your creativity now!",
+    "noRequire": "No credit card required.",
+    "lovedUsersCount": "153,000+",
+    "users": "users"
   },
   "SocialProof": {
     "maker": "makers ship fast"
@@ -11,12 +12,89 @@
   "Feature": {
     "title": "Features"
   },
+  "Discover": {
+    "subTitle": "Discover the Artistry",
+    "title": "AI Generative Fill Art Images",
+    "description": "Explore the Discovery gallery to see what others have created—get inspired and start generating your own amazing images today!"
+  },
+  "CallSection": {
+    "question": "Excited to create?",
+    "title": "Transform your images with AI magic now!"
+  },
+  "CallSection2": {
+    "title": "Try AI Generative Fill Today!",
+    "description": "Transform your images with AI magic now!"
+  },
+  "HowItWork": {
+    "subTitle": "Better Understanding",
+    "title": "How does AI Generative Fill work?",
+    "description": "Step by step, here's how AI Generative Fill works:",
+    "steps": [
+      {
+        "title": "AI Analysis: ",
+        "description": "When you upload an image, AI Generative Fill analyzes the content and context of the selected area."
+      },
+      {
+        "title": "Prompt Integration: ",
+        "description": "The AI interprets your prompt, understanding the desired outcome for the chosen part of the image."
+      },
+      {
+        "title": "Content Generation: ",
+        "description": "Using advanced algorithms, AI Generative Fill generates new objects or elements that seamlessly blend into the selected area."
+      },
+      {
+        "title": "Real-Time Rendering: ",
+        "description": "The final image is rendered in real-time, giving you an instant preview of the transformed content."
+      }
+    ]
+  },
   "Pricing": {
     "title": "Pricing",
-    "title2": "Get unlimited access.",
-    "description": "The page you are currently viewing is an open-source, free boilerplate.",
-    "doYouLike": "Do you like this landing page boilerplate?",
-    "follow": "Follow my Twitter."
+    "title2": "Unleash your creativity with AI Generative Fill",
+    "description": "Unlock the full potential of AI Generative Fill with a plan that suits your needs. Whether you're just starting out or diving into advanced projects, choose a plan today and start creating without limits!",
+    "priceUnit": "USD",
+    "creditText": "Image Credits",
+    "plans": [
+      {
+        "title": "Starter",
+        "originalPrice": "$9.9",
+        "currPrice": "$7.9",
+        "credits": 40,
+        "isPopular": false,
+        "features": [
+          "Valid for 1 month",
+          "Fast generation",
+          "High quality images",
+          "No watermark"
+        ]
+      },
+      {
+        "title": "Basic",
+        "originalPrice": "$14.9",
+        "currPrice": "$9.9",
+        "credits": 100,
+        "isPopular": true,
+        "features": [
+          "Valid for 1 month",
+          "Fast generation",
+          "High quality images",
+          "No watermark"
+        ]
+      },
+      {
+        "title": "Advanced",
+        "originalPrice": "$39",
+        "currPrice": "$28",
+        "credits": 500,
+        "isPopular": false,
+        "features": [
+          "Valid for 2 month",
+          "Fast generation",
+          "High quality images",
+          "No watermark"
+        ]
+      }
+    ]
   },
   "WallOfLove": {
     "title": "Wall of Love",
@@ -44,17 +122,22 @@
     "title": "How to use Generative Fill AI",
     "steps": [
       {
-        "title": "Step 1: Upload the Picture",
-        "description": "First, Upload the picture you wish to shape."
+        "title": "Step 1: Upload the Image",
+        "description": "Upload the image you wish to generative fill."
       },
       {
-        "title": "Step 2: Enter a prompt",
-        "description": "Enter the description or keywords related to the image you want to create."
+        "title": "Step 2: Select an area",
+        "description": "Select an area where you wish to fill"
       },
       {
-        "title": "Step 3: Generate the Image",
+        "title": "Step 3: Enter a prompt",
+        "description": "Enter the description or keywords related to the object you want to create."
+      },
+      {
+        "title": "Step 4: Generate the Image",
         "description": "Click Generate and in seconds, you will get the result."
       }
     ]
   }
 }
+

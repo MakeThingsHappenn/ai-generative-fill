@@ -20,11 +20,11 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
       >
         <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
           <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start order-2 sm:order-1">
-            <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">Turn Anything into Illusion Art</h1>
-            <p className="text-lg opacity-80 leading-relaxed">Turn any design, text, or photo into captivating illusion art. Explore the limitless possibilities now!</p>
+            <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">{locale.title}</h1>
+            <p className="text-lg opacity-80 leading-relaxed">{locale.description}</p>
             <div>
               <a className="btn btn-primary btn-wide" href="/app">{CTALocale.title}</a>
-              <p className="text-sm opacity-70 mt-2">No credit card required.</p>
+              <p className="text-sm opacity-70 mt-2">{locale.noRequire}</p>
             </div>
             <div className="flex-col md:flex-row justify-center items-center md:items-start gap-3 hidden sm:flex">
               <div className="-space-x-5 avatar-group justy-start">
@@ -48,7 +48,7 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
                     })
                   }
                 </div>
-                <div className="text-base text-base-content/80">Loved by <span className="font-semibold text-base-content">153,000+</span> users</div>
+                <div className="text-base text-base-content/80">Loved by <span className="font-semibold text-base-content">{locale.lovedUsersCount}</span> {locale.users}</div>
               </div>
             </div>
           </div>

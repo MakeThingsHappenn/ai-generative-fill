@@ -4,61 +4,62 @@ export const FAQS_EN = [
     content:
       "AI Generative Fill is an advanced tool that uses artificial intelligence to extend and outpaint images. By selecting an area and providing a prompt, our AI generates and replaces that part of the image seamlessly. AI Generative Fill is perfect for both professionals and hobbyists.",
   },
-  {
-    title: "What are the main features of AI Generative Fill?",
-    content:
-      "The main features of AI Generative Fill include:Image Outpainting: Extend images by filling in selected areas with AI-generated content using AI Generative Fill. Image Extender: Seamlessly blend generated content to enhance and expand photos with AI Generative Fill. Photo Restoration: Restore and repair old or damaged photos using AI Generative Fill. Creative Projects: Generate unique and creative images based on user prompts with AI Generative Fill.",
-  },
+  // {
+  //   title: "What are the main features of AI Generative Fill?",
+  //   content:
+  //     "The main features of AI Generative Fill include:Image Outpainting: Extend images by filling in selected areas with AI-generated content using AI Generative Fill. Image Extender: Seamlessly blend generated content to enhance and expand photos with AI Generative Fill. Photo Restoration: Restore and repair old or damaged photos using AI Generative Fill. Creative Projects: Generate unique and creative images based on user prompts with AI Generative Fill.",
+  // },
   {
     title: "Do I need any technical background to use AI Generative Fill?",
     content:
       "No technical background is required to use AI Generative Fill. Our user-friendly interface makes it easy for anyone to start editing images with just a few clicks using AI Generative Fill.",
   },
-  {
-    title: "What are the use cases for AI Generative Fill?",
-    content:
-      "AI Generative Fill is ideal for various scenarios, including: Restoring old photos by filling in missing or damaged parts with AI Generative Fill. Creating unique images for digital art, marketing, and social media with AI Generative Fill. Enhancing and extending existing photos for a more complete look using AI Generative Fill. Professional image editing and design projects with AI Generative Fill.",
-  },
+  // {
+  //   title: "What are the use cases for AI Generative Fill?",
+  //   content:
+  //     "AI Generative Fill is ideal for various scenarios, including: Restoring old photos by filling in missing or damaged parts with AI Generative Fill. Creating unique images for digital art, marketing, and social media with AI Generative Fill. Enhancing and extending existing photos for a more complete look using AI Generative Fill. Professional image editing and design projects with AI Generative Fill.",
+  // },
   {
     title: "How do I start using AI Generative Fill?",
     content:
       "Simply upload the image you want to edit, select the area to be replaced, enter your prompt, and click start. AI Generative Fill will automatically generate and replace the selected area with high-quality content using AI Generative Fill.",
   },
   {
-    title: "How accurate is AI Generative Fill in matching the existing image style?",
+    title:
+      "How accurate is AI Generative Fill in matching the existing image style?",
     content:
       "AI Generative Fill uses advanced algorithms to match the style, color, and texture of the existing image, ensuring seamless integration and high-quality results.",
   },
-  {
-    title: "Can AI Generative Fill be used for commercial purposes?",
-    content:
-      "Yes, AI Generative Fill can be used for commercial purposes, including marketing materials, product images, and creative projects, provided you comply with our terms of service.",
-  },
-  {
-    title: "How long does it take to process an image with AI Generative Fill?",
-    content:
-      "The processing time for AI Generative Fill varies depending on the complexity of the image and the selected area, but most tasks are completed within a few minutes.",
-  },
-  {
-    title: "Is there a limit to the size of the area that can be filled using AI Generative Fill?",
-    content:
-      "While AI Generative Fill can handle large areas, the quality of the generated content may vary. For best results, it's recommended to use smaller, more manageable areas.",
-  },
+  // {
+  //   title: "Can AI Generative Fill be used for commercial purposes?",
+  //   content:
+  //     "Yes, AI Generative Fill can be used for commercial purposes, including marketing materials, product images, and creative projects, provided you comply with our terms of service.",
+  // },
+  // {
+  //   title: "How long does it take to process an image with AI Generative Fill?",
+  //   content:
+  //     "The processing time for AI Generative Fill varies depending on the complexity of the image and the selected area, but most tasks are completed within a few minutes.",
+  // },
+  // {
+  //   title: "Is there a limit to the size of the area that can be filled using AI Generative Fill?",
+  //   content:
+  //     "While AI Generative Fill can handle large areas, the quality of the generated content may vary. For best results, it's recommended to use smaller, more manageable areas.",
+  // },
   {
     title: "What file formats are supported by AI Generative Fill?",
     content:
       "AI Generative Fill supports popular image formats such as JPEG, PNG, and TIFF, making it versatile and easy to use with different types of images.",
   },
-  {
-    title: "How secure is my data when using AI Generative Fill?",
-    content:
-      "AI Generative Fill takes data security seriously. All uploaded images and user data are encrypted and processed securely, ensuring your privacy and protection.",
-  },
-  {
-    title: "Can I preview the generated image before finalizing the edit with AI Generative Fill?",
-    content:
-      "Yes, AI Generative Fill provides a preview option so you can see the generated image and make any necessary adjustments before finalizing the edit.",
-  },
+  // {
+  //   title: "How secure is my data when using AI Generative Fill?",
+  //   content:
+  //     "AI Generative Fill takes data security seriously. All uploaded images and user data are encrypted and processed securely, ensuring your privacy and protection.",
+  // },
+  // {
+  //   title: "Can I preview the generated image before finalizing the edit with AI Generative Fill?",
+  //   content:
+  //     "Yes, AI Generative Fill provides a preview option so you can see the generated image and make any necessary adjustments before finalizing the edit.",
+  // },
 ];
 
 export const FAQS_ZH = [
@@ -151,12 +152,14 @@ export const FAQS_JA = [
       "当社のランディングページテンプレートを使用するには、基本的なウェブ編集スキルだけが必要です。このテンプレートのデザインは、技術的でないユーザーが簡単に始められるように意図されていますが、経験豊富な開発者にも高いカスタマイズ性を提供します。",
   },
   {
-    title: "ランディングページテンプレートを使い始めるにはどうすればいいですか？",
+    title:
+      "ランディングページテンプレートを使い始めるにはどうすればいいですか？",
     content:
       "始めるのは非常に簡単です。GitHubリポジトリからソースコードをダウンロードし、必要に応じてテキストや画像を編集してから、サーバーにデプロイします。",
   },
   {
-    title: "ランディングページテンプレートはレスポンシブデザインに対応していますか？",
+    title:
+      "ランディングページテンプレートはレスポンシブデザインに対応していますか？",
     content:
       "はい、当社のランディングページテンプレートはレスポンシブデザインに対応しており、デスクトップ、タブレット、スマートフォンなど、さまざまなデバイスで完璧に表示されます。",
   },
@@ -186,7 +189,6 @@ export const FAQS_JA = [
       "テンプレートの使用中に問題が発生した場合は、Twitter @weijunextでお問い合わせください。",
   },
 ];
-
 
 export const FAQS_AR = [
   {
@@ -371,7 +373,8 @@ export const FAQS_RU = [
       "Да, наш шаблон включает базовые функции оптимизации SEO, чтобы помочь вашей веб-странице достичь лучших позиций в поисковых системах.",
   },
   {
-    title: "Что мне делать, если я столкнусь с проблемами при использовании шаблона?",
+    title:
+      "Что мне делать, если я столкнусь с проблемами при использовании шаблона?",
     content:
       "Если вы столкнетесь с какими-либо проблемами при использовании шаблона, пожалуйста, свяжитесь с нами через Twitter @weijunext.",
   },
@@ -390,4 +393,5 @@ export const ALL_FAQS: FAQSCollection = {
   FAQS_AR,
   FAQS_ES,
   FAQS_RU,
-}
+};
+
