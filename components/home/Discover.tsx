@@ -1,3 +1,4 @@
+import Image from "next/image";
 const Discover = ({ locale }: { locale: any }) => {
   return (
     <>
@@ -25,7 +26,7 @@ const Discover = ({ locale }: { locale: any }) => {
                     .fill(null)
                     .map((item, i) => {
                       return (
-                        <img
+                        <Image
                           key={i}
                           alt="Illusion Diffusion AI Art Image 1"
                           loading="lazy"

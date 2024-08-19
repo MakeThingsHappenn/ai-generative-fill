@@ -1,4 +1,5 @@
 import { ALL_FOOTER_LINKS } from "@/config/footer";
+import Image from "next/image";
 
 const Footer = ({ lang }: { lang: string }) => {
   const footerLinks = ALL_FOOTER_LINKS[`FOOTER_LINKS_${lang.toUpperCase()}`];
@@ -13,7 +14,7 @@ const Footer = ({ lang }: { lang: string }) => {
             Footer
           </h2>
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <img
+            <Image
               src="/logo.png"
               alt="Illusion Diffusion logo"
               width="32"

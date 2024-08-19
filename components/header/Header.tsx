@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { CgClose } from "react-icons/cg";
 import { HEADER_LINK_HREFS } from "@/config/header";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import "./Header.css";
 
 const links = HEADER_LINK_HREFS;
@@ -22,7 +23,7 @@ const Header = ({ lang }: { lang: string }) => {
             title={siteConfig.name}
             href="/"
           >
-            <img
+            <Image
               src="/logo.png"
               alt="Illusion Diffusion logo"
               width="32"

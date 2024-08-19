@@ -1,4 +1,5 @@
 import { HOW_TO_USE_IMAGES } from "@/config/howToUse";
+import Image from "next/image";
 const HowToUse = ({
   id,
   locale,
@@ -21,7 +22,7 @@ const HowToUse = ({
                 return (
                   <div key={step.title}>
                     <div className="flex flex-col items-center justify-center mb-8 md:mb-0">
-                      <img
+                      <Image
                         className="w-[290px] h-[290px] rounded-xl"
                         src={HOW_TO_USE_IMAGES[i]}
                         alt={step.title}
@@ -37,7 +38,7 @@ const HowToUse = ({
                       </div>
                     </div>
                     {locale.steps.length - 1 !== i && (
-                      <img
+                      <Image
                         className="hidden md:block w-[77px] h-[55px] mt-[-108px]"
                         src="https://static.artguru.ai/_next/static/media/arrow_down.09156f6d.png"
                         alt="Next Step Arrow"

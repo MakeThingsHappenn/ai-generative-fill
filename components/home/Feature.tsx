@@ -1,4 +1,5 @@
 import { ALL_FEATURES } from "@/config/feature";
+import Image from "next/image";
 
 const Feature = ({
   id,
@@ -20,7 +21,7 @@ const Feature = ({
                 <div className="grid grid-cols-1 items-center gap-8 sm:gap-20 lg:grid-cols-2">
                   {i % 2 === 0 && (
                     <div className="">
-                      <img
+                      <Image
                         src={feature.img}
                         alt="Font art showing a quote"
                         className="mx-auto inline-block h-full w-full max-w-[640px] object-cover rounded-lg shadow-lg"
@@ -40,7 +41,7 @@ const Feature = ({
                   </div>
                   {i % 2 === 1 && (
                     <div className="">
-                      <img
+                      <Image
                         src={feature.img}
                         alt="Font art showing a quote"
                         className="mx-auto inline-block h-full w-full max-w-[640px] object-cover rounded-lg shadow-lg"
