@@ -4,7 +4,7 @@ export const FOOTER_LINKS_EN = [
     links: [
       {
         title: "Contact Us",
-        href: "mailto:contact@illusiondiffusion.net",
+        href: "mailto:contact@generativefill.net",
       },
     ],
   },
@@ -15,6 +15,15 @@ export const FOOTER_LINKS_EN = [
   {
     title: "Friends",
     links: [],
+  },
+  {
+    title: "Credits",
+    links: [
+      {
+        title: "Landing page boilerplate",
+        href: "https://landingpage.weijunext.com/",
+      },
+    ],
   },
   {
     title: "Legal",

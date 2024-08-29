@@ -1,5 +1,7 @@
+"use client";
 import { HOW_TO_USE_IMAGES } from "@/config/howToUse";
 import Image from "next/image";
+import { useRef, useState } from "react";
 const HowToUse = ({
   id,
   locale,
@@ -9,10 +11,96 @@ const HowToUse = ({
   locale: any;
   CTALocale: any;
 }) => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index);
+    const carousel = carouselRef.current;
+    if (carousel) {
+      const item = carousel.querySelector(`#item${index + 1}`);
+      item?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  };
+
   return (
     <>
-      <div id={id}>
-        <div className="bg-[#F3F5FF] py-20 px-4 sm:px-8">
+      <div id={id} className="-mt-52">
+        <h2 className="text-center font-bold text-4xl leading-[60px] text-black">
+          {locale.title}
+        </h2>
+        <div className="w-full flex">
+          <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
+            <div className="flex flex-row">
+              <div
+                ref={carouselRef}
+                className="w-1/2 h-[490px] overflow-hidden"
+              >
+                {locale.steps.map((step: any, index: number) => (
+                  <div
+                    key={index}
+                    id={`item${index + 1}`}
+                    className="carousel-item w-full mx-auto flex justify-center"
+                  >
+                    <Image
+                      src={HOW_TO_USE_IMAGES[index]}
+                      alt={step.title}
+                      width={500}
+                      height={500}
+                      objectFit="cover"
+                      priority={index === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col justify-center w-1/2 gap-4 py-4 pl-8">
+                <div className="w-full">
+                  {locale.steps.map((step: any, index: number) => (
+                    <div key={index} className="relative mb-6">
+                      <div
+                        className={`absolute left-0 top-2 w-1 transition-all duration-300 ease-in-out ${
+                          index === activeIndex ? "bg-blue-500" : "bg-gray-300"
+                        }`}
+                        style={{
+                          height:
+                            index === activeIndex
+                              ? "calc(100% - 1rem)"
+                              : "1.5rem",
+                          transition: "height 0.3s ease-in-out",
+                          background:
+                            index === activeIndex
+                              ? "linear-gradient(to bottom, #EEA7D3, #8B5CF6)"
+                              : undefined,
+                        }}
+                      ></div>
+                      <div className="ml-6 pt-2 pb-4">
+                        <button
+                          className={`text-lg font-extrabold ${
+                            index === activeIndex
+                              ? "text-homeBackground"
+                              : "text-gray-700"
+                          } hover:text-homeBackground transition-colors duration-300 ease-in-out`}
+                          onClick={() => handleClick(index)}
+                        >
+                          {step.title}
+                        </button>
+                        {index === activeIndex && (
+                          <div className="mt-2 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p className="text-sm text-gray-600">
+                              {step.description}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="py-20 px-4 sm:px-8 -mt-60">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-center font-bold text-4xl leading-[60px] text-black mb-8">
               {locale.title}
@@ -23,7 +111,9 @@ const HowToUse = ({
                   <div key={step.title}>
                     <div className="flex flex-col items-center justify-center mb-8 md:mb-0">
                       <Image
-                        className="w-[290px] h-[290px] rounded-xl"
+                        className="rounded-xl"
+                        width={290}
+                        height={290}
                         src={HOW_TO_USE_IMAGES[i]}
                         alt={step.title}
                       />
@@ -39,8 +129,10 @@ const HowToUse = ({
                     </div>
                     {locale.steps.length - 1 !== i && (
                       <Image
-                        className="hidden md:block w-[77px] h-[55px] mt-[-108px]"
-                        src="https://static.artguru.ai/_next/static/media/arrow_down.09156f6d.png"
+                        className="hidden md:block mt-[-108px]"
+                        width={77}
+                        height={55}
+                        src=""
                         alt="Next Step Arrow"
                       />
                     )}
@@ -54,7 +146,7 @@ const HowToUse = ({
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

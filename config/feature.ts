@@ -11,6 +11,12 @@ export const FEATURES_EN = [
       "Guide the AI with simple prompts to seamlessly blend new objects into your image. Creativity is made simple—no design skills needed.",
     img: "/home/6.png",
   },
+  {
+    title: "Creative Control at Your Fingertips.",
+    description:
+      "Guide the AI with simple prompts to seamlessly blend new objects into your image. Creativity is made simple—no design skills needed.",
+    img: "/home/6.png",
+  },
 ];
 
 export const FEATURES_ZH = [
@@ -98,4 +104,6 @@ export const ALL_FEATURES: FeaturesCollection = {
   FEATURES_ES,
   FEATURES_RU,
 };
+
+export const COLOR_MAP = ["#B587E5", "#F3AE77", "#E88CB3"];
 

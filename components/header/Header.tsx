@@ -5,17 +5,35 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { CgClose } from "react-icons/cg";
 import { HEADER_LINK_HREFS } from "@/config/header";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 const links = HEADER_LINK_HREFS;
 
 const Header = ({ lang }: { lang: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    console.log("handleSmoothScroll");
+    e.preventDefault();
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById("#" + targetId);
+    if (elem) {
+      elem?.scrollIntoView({
+        behavior: "smooth",
+      });
+    } else {
+      router.push(`/${lang}${href}`);
+    }
+  };
 
   return (
-    <header className="py-10 mx-auto px-4 sm:px-6 lg:px-8 bg-headerBackground h-4">
+    <header className="py-10 mx-auto px-4 sm:px-6 lg:px-8 bg-homeBackground h-4">
       <nav className="container flex items-center justify-between px-8 mx-auto h-full max-2xl:w-full">
         <div className="flex lg:flex-1">
           <a
@@ -23,16 +41,7 @@ const Header = ({ lang }: { lang: string }) => {
             title={siteConfig.name}
             href="/"
           >
-            <Image
-              src="/logo.png"
-              alt="Illusion Diffusion logo"
-              width="32"
-              height="32"
-              decoding="async"
-              data-nimg="1"
-              className="w-10 sm:w-12"
-            />
-            <span className="font-extrabold text-xl sm:text-2xl text-logo">
+            <span className="font-extrabold text-xl sm:text-2xl">
               {siteConfig.name}
             </span>
           </a>
@@ -49,9 +58,10 @@ const Header = ({ lang }: { lang: string }) => {
             return (
               <a
                 key={link.href}
-                className="link link-hover"
+                className="link link-hover font-semibold"
                 title={link.label}
-                href={"/" + lang + "/" + link.href}
+                href={link.href}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
               >
                 {link.label}
               </a>
@@ -59,7 +69,13 @@ const Header = ({ lang }: { lang: string }) => {
           })}
         </div>
         <div className="hidden lg:flex lg:justify-end lg:flex-1">
-          <button className="btn btn-primary">{siteConfig.buttonText}</button>
+          <div className={styles.signupButtonWrapper}>
+            <button className={styles.signupButton}>
+              {siteConfig.buttonText}
+            </button>
+            <div className={styles.circleEffect}></div>
+          </div>
+          {/* <button className="btn btn-primary">{siteConfig.buttonText}</button> */}
         </div>
 
         {/* 小屏折叠菜单 */}

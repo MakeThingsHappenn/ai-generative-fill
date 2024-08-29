@@ -4,11 +4,11 @@ import type { Config } from "tailwindcss";
 const config = {
   darkMode: "class",
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
@@ -26,13 +26,15 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        homeBackground: "#EEA7D3",
+        textColor: "#B587E5",
         // primary: {
         //   DEFAULT: "hsl(var(--primary))",
         //   foreground: "hsl(var(--primary-foreground))",
         // },
         primary: {
           foreground: "#FFFFFF",
-          DEFAULT: "#3B82F6",
+          DEFAULT: "#000000",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -58,7 +60,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        logo: '#F23589',
+        logo: "#F23589",
       },
       backgroundColor: {
         headerBackground: "rgb(242, 242, 242)",
@@ -90,21 +92,31 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "scrolling-banner": "scrolling-banner var(--duration) linear infinite",
-        "scrolling-banner-vertical": "scrolling-banner-vertical var(--duration) linear infinite",
+        "scrolling-banner-vertical":
+          "scrolling-banner-vertical var(--duration) linear infinite",
       },
       screens: {
-        'max-2xl': { 'max': '1536px' },
-        'max-xl': { 'max': '1280px' },
-        'max-lg': { 'max': '1024px' },
-        'max-md': { 'max': '768px' },
-        'max-sm': { 'max': '640px' },
+        "max-2xl": { max: "1536px" },
+        "max-xl": { max: "1280px" },
+        "max-lg": { max: "1024px" },
+        "max-md": { max: "768px" },
+        "max-sm": { max: "640px" },
       },
     },
   },
   daisyui: {
-    themes: ['light']
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
+          primary: "#000000",
+          "primary-content": "#FFFFFF",
+        },
+      },
+    ],
   },
-  plugins: [require("tailwindcss-animate"), nextui(), require('daisyui')],
-} satisfies Config
+  plugins: [require("tailwindcss-animate"), nextui(), require("daisyui")],
+} satisfies Config;
 
-export default config
+export default config;
+

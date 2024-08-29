@@ -20,7 +20,7 @@ export default async function HomePage({
   const dict = await getDictionary(langName);
 
   const getHrefByLabel = (label: string) => {
-    return HEADER_LINK_HREFS.filter((item) => item.label === label)[0]["href"];
+    return HEADER_LINK_HREFS.filter((item) => item.label === label)[0]?.href;
   };
 
   return (
@@ -37,10 +37,10 @@ export default async function HomePage({
         langName={langName}
         CTALocale={dict.CTAButton}
       />
-      <Discover locale={dict.Discover} />
+      {/* <Discover locale={dict.Discover} /> */}
       <CallSection locale={dict.CallSection} CTALocale={dict.CTAButton} />
       <HowItWork id={getHrefByLabel("How it Work")} locale={dict.HowItWork} />
-      <Pricing id={getHrefByLabel("Pricing")} locale={dict.Pricing} />
+      {/* <Pricing id={getHrefByLabel("Pricing")} locale={dict.Pricing} /> */}
       <FAQ id={getHrefByLabel("FAQ")} langName={langName} />
       <CallSection2 locale={dict.CallSection2} CTALocale={dict.CTAButton} />
     </>

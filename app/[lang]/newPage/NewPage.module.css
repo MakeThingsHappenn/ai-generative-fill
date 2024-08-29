@@ -1,0 +1,121 @@
+.container {
+  background-color: #d097b9; /* 粉色背景 */
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Al Bayan;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.nav a {
+  margin-right: 1rem;
+  color: black;
+  text-decoration: none;
+}
+
+.signupButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.main {
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  margin-bottom: 2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.primaryButton {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.secondaryButton {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.imageContainer {
+  margin-bottom: 2rem;
+}
+
+.mainImage {
+  border-radius: 10px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+}
+
+.featureCard {
+  background-color: #e6e6fa; /* 淡紫色背景 */
+  padding: 1rem;
+  border-radius: 10px;
+  width: 30%;
+}
+
+.featureButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+
+.signupButtonWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.signupButton {
+  position: relative;
+  z-index: 2;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.circleEffect {
+  position: absolute;
+  top: -8px;
+  left: -7px;
+  right: -7px;
+  bottom: -8px;
+  border: 2px solid black;
+  border-radius: 18px;
+  z-index: 1;
+}
+

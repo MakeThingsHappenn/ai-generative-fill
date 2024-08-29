@@ -5,7 +5,7 @@ import Image from "next/image";
 const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
   return (
     <>
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -18,8 +18,9 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
             // restDelta: 0.001, // if spring
           },
         }}
-      >
-        <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
+      > */}
+      <section className="bg-homeBackground w-full">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
           <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start order-2 sm:order-1">
             <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
               {locale.title}
@@ -89,8 +90,16 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
               className="w-full rounded-lg shadow-lg"
             />
           </div>
-        </section>
-      </motion.div>
+        </div>
+      </section>
+      <Image
+        src="/common/wave-bottom.svg"
+        alt="Wave Bottom"
+        width={1440}
+        height={260}
+        className="w-full -mt-10"
+      />
+      {/* </motion.div> */}
     </>
   );
 };

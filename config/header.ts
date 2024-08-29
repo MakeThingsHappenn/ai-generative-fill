@@ -15,10 +15,10 @@ export const HEADER_LINK_HREFS = [
     label: "Playground",
     href: "/playground",
   },
-  {
-    label: "Pricing",
-    href: "#Pricing",
-  },
+  // {
+  //   label: "Pricing",
+  //   href: "#Pricing",
+  // },
   {
     label: "FAQ",
     href: "#FAQ",
