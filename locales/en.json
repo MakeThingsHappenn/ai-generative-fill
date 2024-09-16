@@ -9,7 +9,7 @@
   "SocialProof": {
     "maker": "makers ship fast"
   },
-  "Feature": {
+  "Feature1": {
     "title": "Features"
   },
   "Discover": {
@@ -136,6 +136,23 @@
       {
         "title": "Step 4: Generate the Image",
         "description": "Click Generate and in seconds, you will get the result."
+      }
+    ]
+  },
+  "Feature": {
+    "title": "Use Cases",
+    "steps": [
+      {
+        "title": "Landscape Images",
+        "description": "Transform your landscape photos by seamlessly adding new elements. Whether you want to insert a majestic mountain, a serene lake, or a charming cottage, our AI can blend these objects naturally into your existing scenery. Perfect for enhancing travel photos, creating dreamlike vistas, or visualizing landscape design ideas."
+      },
+      {
+        "title": "Remove Object",
+        "description": "Clean up your photos by effortlessly removing unwanted elements. From photobombers to power lines, street signs to stray litter, our AI can intelligently erase these objects while preserving the background. This feature is ideal for decluttering scenic shots, improving real estate photos, or touching up personal memories without compromising image quality."
+      },
+      {
+        "title": "Edit Image Object",
+        "description": "Unleash your creativity by modifying existing objects within your images. Change the color of a car, update the style of clothing, or transform the appearance of buildings. Our AI understands the context and lighting of your image, ensuring that edits look natural and integrated. This tool is perfect for product visualization, fashion design concepts, or reimagining architectural features in photos."
       }
     ]
   }

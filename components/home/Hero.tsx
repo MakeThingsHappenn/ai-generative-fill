@@ -1,26 +1,62 @@
 "use client";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
+import CaseImage from "@/components/common/caseImage";
 
-const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
+const Hero = ({
+  locale,
+  CTALocale,
+  lang,
+}: {
+  locale: any;
+  CTALocale: any;
+  lang: string;
+}) => {
+  const router = useRouter();
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFile = useCallback(
+    (file: File) => {
+      if (file.type.startsWith("image/")) {
+        router.push(`/${lang}/playground`);
+      } else {
+        alert("Please select an image file.");
+      }
+    },
+    [router]
+  );
+
+  const onDrop = useCallback(
+    (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      setIsDragging(false);
+      const file = e.dataTransfer.files[0];
+      if (file) handleFile(file);
+    },
+    [handleFile]
+  );
+
+  const onDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(true);
+  }, []);
+
+  const onDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+  }, []);
+
+  const onClick = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
+
   return (
     <>
-      {/* <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.3,
-          ease: [0, 0.71, 0.2, 1],
-          scale: {
-            type: "tween", // tween spring
-            // damping: 10, // if spring
-            // stiffness: 50, // if spring
-            // restDelta: 0.001, // if spring
-          },
-        }}
-      > */}
       <section className="bg-homeBackground w-full">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 lg:py-20">
           <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start order-2 sm:order-1">
             <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
               {locale.title}
@@ -28,66 +64,42 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
             <p className="text-lg opacity-80 leading-relaxed">
               {locale.description}
             </p>
-            <div>
-              <a className="btn btn-primary btn-wide" href="/app">
-                {CTALocale.title}
-              </a>
-              <p className="text-sm opacity-70 mt-2">{locale.noRequire}</p>
-            </div>
-            <div className="flex-col md:flex-row justify-center items-center md:items-start gap-3 hidden sm:flex">
-              <div className="-space-x-5 avatar-group justy-start">
-                {Array(5)
-                  .fill(null)
-                  .map((item, i) => {
-                    return (
-                      <div key={i} className="avatar w-12 h-12">
-                        <Image
-                          src="/home/avatar.png"
-                          alt="User"
-                          width="50"
-                          height="50"
-                          decoding="async"
-                          data-nimg="1"
-                        />
-                      </div>
-                    );
-                  })}
-              </div>
-              <div className="flex flex-col justify-center items-center md:items-start gap-1">
-                <div className="rating rating-sm">
-                  {Array(5)
-                    .fill(null)
-                    .map((item, i) => {
-                      return (
-                        <input
-                          key={i}
-                          defaultChecked
-                          type="radio"
-                          name="rating-2"
-                          className="mask mask-star-2 bg-yellow-500"
-                        />
-                      );
-                    })}
-                </div>
-                <div className="text-base text-base-content/80">
-                  Loved by{" "}
-                  <span className="font-semibold text-base-content">
-                    {locale.lovedUsersCount}
-                  </span>{" "}
-                  {locale.users}
+            <div className="w-full">
+              <input
+                ref={fileInputRef}
+                type="file"
+                className="hidden"
+                accept="image/png, image/jpeg"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) handleFile(file);
+                }}
+              />
+              <div
+                className={`group relative flex h-full w-full cursor-pointer items-center rounded-2xl font-medium focus-within:outline-none ${
+                  isDragging ? "bg-green-200" : "hover:bg-green-200"
+                }`}
+                onDrop={onDrop}
+                onDragOver={onDragOver}
+                onDragLeave={onDragLeave}
+                onClick={onClick}
+              >
+                <div className="text- flex w-full items-center justify-center rounded-2xl border-2 border-dashed border-black px-6 py-8 text-center font-semibold hover:bg-blend-multiply sm:py-16">
+                  <p className="hidden text-xl font-normal sm:block">
+                    Click or drop your image here
+                  </p>
+                  <p className="sm:hidden">Tap here to load your picture</p>
                 </div>
               </div>
             </div>
           </div>
           <div className="lg:w-full order-1 sm:order-2">
-            <Image
-              src="/home/1.png"
-              alt="Product Demo"
-              width="500"
-              height="500"
-              decoding="async"
-              data-nimg="1"
-              className="w-full rounded-lg shadow-lg"
+            <CaseImage
+              beforeImg="/home/girl-before.png"
+              afterImg="/home/girl-after.png"
+              width={500}
+              height={500}
+              direction="horizon"
             />
           </div>
         </div>
@@ -99,7 +111,6 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
         height={260}
         className="w-full -mt-10"
       />
-      {/* </motion.div> */}
     </>
   );
 };

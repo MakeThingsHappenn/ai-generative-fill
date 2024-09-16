@@ -42,17 +42,17 @@
   background-color: black;
   color: white;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .circleEffect {
   position: absolute;
-  top: -8px;
-  left: -7px;
-  right: -7px;
-  bottom: -8px;
+  top: -9px;
+  left: -9px;
+  right: -9px;
+  bottom: -9px;
   border: 1px solid black;
-  border-radius: 18px;
+  border-radius: 14px;
   z-index: 1;
 }
 

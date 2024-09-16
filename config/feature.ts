@@ -107,3 +107,22 @@ export const ALL_FEATURES: FeaturesCollection = {
 
 export const COLOR_MAP = ["#B587E5", "#F3AE77", "#E88CB3"];
 
+export const FEATURE_IMAGES = [
+  // {
+  //   beforeImg: "/home/girl-before.png",
+  //   afterImg: "/home/girl-after.png",
+  // },
+  {
+    beforeImg: "/home/car-before.png",
+    afterImg: "/home/car-after.png",
+  },
+  {
+    beforeImg: "/home/bike-before.png",
+    afterImg: "/home/bike-after.png",
+  },
+  {
+    beforeImg: "/home/man-before.png",
+    afterImg: "/home/man-after.png",
+  },
+];
+

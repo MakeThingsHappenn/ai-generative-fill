@@ -5,7 +5,7 @@ import FAQ from "@/components/home/FAQ";
 import Feature from "@/components/home/Feature";
 import Hero from "@/components/home/Hero";
 import HowItWork from "@/components/home/HowItWork";
-import HowToUse from "@/components/home/HowToUse";
+// import HowToUse from "@/components/home/HowToUse";
 import Pricing from "@/components/home/Pricing";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
 import { HEADER_LINK_HREFS } from "@/config/header";
@@ -26,17 +26,17 @@ export default async function HomePage({
   return (
     <>
       {/* Hero Section */}
-      <Hero locale={dict.Hero} CTALocale={dict.CTAButton} />
-      <HowToUse
+      <Hero locale={dict.Hero} CTALocale={dict.CTAButton} lang={langName} />
+      <Feature
+        id={getHrefByLabel("Features")}
+        locale={dict.Feature}
+        CTALocale={dict.CTAButton}
+      />
+      {/* <HowToUse
         id={getHrefByLabel("How to Use")}
         locale={dict.HowToUse}
         CTALocale={dict.CTAButton}
-      />
-      <Feature
-        id={getHrefByLabel("Features")}
-        langName={langName}
-        CTALocale={dict.CTAButton}
-      />
+      /> */}
       {/* <Discover locale={dict.Discover} /> */}
       <CallSection locale={dict.CallSection} CTALocale={dict.CTAButton} />
       <HowItWork id={getHrefByLabel("How it Work")} locale={dict.HowItWork} />
