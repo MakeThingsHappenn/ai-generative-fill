@@ -13,10 +13,21 @@ const input = {
 
 // ... existing code ...
 
-export const runModel = async () => {
+export const runModel = async (prompt: string, image: string, mask: string) => {
   try {
+    const params = {
+      prompt,
+      mask,
+      image,
+      num_inference_steps: 25,
+    };
+    // const output = await replicate.run(
+    //   "stability-ai/stable-diffusion-inpainting:95b7223104132402a9ae91cc677285bc5eb997834bd2349fa486f53910fd68b3",
+    //   { input }
+    // );
+
     const output = await replicate.run(
-      "stability-ai/stable-diffusion-inpainting:95b7223104132402a9ae91cc677285bc5eb997834bd2349fa486f53910fd68b3",
+      "andreasjansson/stable-diffusion-inpainting:e490d072a34a94a11e9711ed5a6ba621c3fab884eda1665d9d3a282d65a21180",
       { input }
     );
 

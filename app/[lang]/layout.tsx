@@ -1,6 +1,6 @@
 import BaiDuAnalytics from "@/app/BaiDuAnalytics";
 import GoogleAnalytics from "@/app/GoogleAnalytics";
-import Footer from "@/components/footer/Footer";
+// import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { siteConfig } from "@/config/site";
@@ -11,6 +11,13 @@ import "@/styles/loading.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
+import dynamic from "next/dynamic";
+
+// 创建一个动态导入的客户端组件
+const DynamicFooter = dynamic(
+  () => import("@/components/footer/DynamicFooter"),
+  { ssr: false }
+);
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -55,7 +62,7 @@ export default async function RootLayout({
         > */}
         <Header lang={lang} />
         <main>{children}</main>
-        <Footer lang={lang} />
+        <DynamicFooter lang={lang} />
         {/* <Footer /> */}
         <Analytics />
         <TailwindIndicator />
