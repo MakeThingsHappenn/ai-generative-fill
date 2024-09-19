@@ -1,4 +1,8 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, {
+  AxiosInstance,
+  InternalAxiosRequestConfig,
+  AxiosResponse,
+} from "axios";
 
 // 创建 Axios 实例
 const instance: AxiosInstance = axios.create({
@@ -11,7 +15,7 @@ const instance: AxiosInstance = axios.create({
 
 // 请求拦截器
 instance.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config: InternalAxiosRequestConfig) => {
     // 在发送请求之前做些什么
     // 例如：添加 token
     // if (localStorage.getItem('token')) {
@@ -83,3 +87,4 @@ export const request = {
   put,
   del,
 };
+

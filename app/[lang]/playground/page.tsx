@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { FaUndo, FaPaintBrush, FaEraser, FaUpload } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -20,7 +21,7 @@ const Playground = () => {
 
   useEffect(() => {
     if (imageContainerRef.current && uploadedImage) {
-      const img = new Image();
+      const img = document.createElement("img");
       img.onload = () => {
         const containerWidth = imageContainerRef.current!.offsetWidth;
         const aspectRatio = img.height / img.width;
@@ -246,10 +247,10 @@ const Playground = () => {
             >
               <div className="w-full h-full flex items-center justify-center">
                 {generatedImage ? (
-                  <img
+                  <Image
                     src={generatedImage}
                     alt="Generated"
-                    className="w-full h-full object-contain px-2"
+                    className="px-2"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">

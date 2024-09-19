@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 
 const ImageEditor: React.FC = () => {
   const [originalImage, setOriginalImage] = useState<string | null>(null);
@@ -11,7 +12,7 @@ const ImageEditor: React.FC = () => {
     if (originalImage && canvasRef.current) {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
-      const img = new Image();
+      const img = document.createElement("img");
       img.onload = () => {
         canvas.width = img.width;
         canvas.height = img.height;
@@ -127,7 +128,7 @@ const ImageEditor: React.FC = () => {
       {maskImage && (
         <div>
           <h3>Generated Mask:</h3>
-          <img src={maskImage} alt="Generated Mask" />
+          <Image src={maskImage} alt="Generated Mask" />
         </div>
       )}
       <canvas ref={maskCanvasRef} style={{ display: "none" }} />

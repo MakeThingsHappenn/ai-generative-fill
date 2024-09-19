@@ -26,7 +26,7 @@ const Hero = ({
         alert("Please select an image file.");
       }
     },
-    [router]
+    [router, lang]
   );
 
   const onDrop = useCallback(
