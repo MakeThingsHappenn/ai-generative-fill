@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.654.0",
+    "@aws-sdk/s3-request-presigner": "^3.654.0",
     "@formatjs/intl-localematcher": "^0.5.4",
     "@heroicons/react": "^2.1.5",
     "@nextui-org/react": "^2.2.10",

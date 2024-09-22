@@ -4,22 +4,25 @@ import Replicate from "replicate";
 const apiKey = process.env.REPLICATE_API_KEY;
 const replicate = new Replicate({ auth: apiKey });
 
-const input = {
-  mask: "https://replicate.delivery/pbxt/HtGQBqO9MtVbPm0G0K43nsvvjBB0E0PaWOhuNRrRBBT4ttbf/mask.png",
-  image: "/public/home1/woman.png",
-  prompt: "sea",
-  num_inference_steps: 25,
-};
+// const input = {
+//   mask: "https://replicate.delivery/pbxt/HtGQBqO9MtVbPm0G0K43nsvvjBB0E0PaWOhuNRrRBBT4ttbf/mask.png",
+//   image: "/public/home1/woman.png",
+//   prompt: "sea",
+//   num_inference_steps: 25,
+// };
 
 // ... existing code ...
 
 export const runModel = async (prompt: string, image: string, mask: string) => {
   try {
-    const params = {
+    const input = {
       prompt,
       mask,
       image,
-      num_inference_steps: 25,
+      num_outputs: 1,
+      num_inference_steps: 50,
+      guidance_scale: 7.5,
+      seed: 0,
     };
     // const output = await replicate.run(
     //   "stability-ai/stable-diffusion-inpainting:95b7223104132402a9ae91cc677285bc5eb997834bd2349fa486f53910fd68b3",

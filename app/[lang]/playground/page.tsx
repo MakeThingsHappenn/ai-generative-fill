@@ -4,26 +4,31 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaUndo, FaPaintBrush, FaEraser, FaUpload } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import ImageEditor from "../../../components/playground/imageEditor";
-import { generateImage } from "@/api";
+import { generateImage, uploadImage } from "@/api";
 
 const Playground = () => {
   const [prompt, setPrompt] = useState("");
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
-  const [imageHeight, setImageHeight] = useState<number | null>(null);
+  const [imageHeight, setImageHeight] = useState<number>(0);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const maskCanvasRef = useRef<HTMLCanvasElement>(null);
-  const [brushSize, setBrushSize] = useState(15);
+  const [brushSize, setBrushSize] = useState(30);
   const [isDrawing, setIsDrawing] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [drawHistory, setDrawHistory] = useState<ImageData[]>([]);
+  const [drawHistory, setDrawHistory] = useState<any[]>([]);
   const [currentStep, setCurrentStep] = useState(-1);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [generateBtnText, setGenerateBtnText] = useState("Generate");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (imageContainerRef.current && uploadedImage) {
       const img = document.createElement("img");
+      img.crossOrigin = "Anonymous";
       img.onload = () => {
         const containerWidth = imageContainerRef.current!.offsetWidth;
+        setContainerWidth(containerWidth);
         const aspectRatio = img.height / img.width;
         const newHeight = containerWidth * aspectRatio;
         setImageHeight(newHeight);
@@ -38,26 +43,24 @@ const Playground = () => {
           canvas.height = maskCanvas.height = newHeight;
           ctx?.drawImage(img, 0, 0, containerWidth, newHeight);
           maskCtx?.fillRect(0, 0, containerWidth, newHeight);
+
+          // 保存初始状态
+          setDrawHistory([
+            {
+              main: ctx?.getImageData(0, 0, canvas.width, canvas.height),
+              mask: maskCtx?.getImageData(
+                0,
+                0,
+                maskCanvas.width,
+                maskCanvas.height
+              ),
+            },
+          ]);
         }
       };
       img.src = uploadedImage;
     }
   }, [uploadedImage]);
-
-  const saveDrawState = () => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext("2d");
-      const currentState = ctx?.getImageData(0, 0, canvas.width, canvas.height);
-      if (currentState) {
-        setDrawHistory((prev) => [
-          ...prev.slice(0, currentStep + 1),
-          currentState,
-        ]);
-        setCurrentStep((prev) => prev + 1);
-      }
-    }
-  };
 
   const runModel = async (
     prompt: string,
@@ -69,8 +72,12 @@ const Playground = () => {
       image: uploadedImage,
       mask: maskImage,
     };
+    setGenerateBtnText("Generating...");
+    setLoading(true);
     generateImage(params).then((res: any) => {
-      console.log("res", res, res.json());
+      setGenerateBtnText("Generating");
+      setLoading(false);
+      setGeneratedImage(res);
     });
   };
   const handleGenerate = async () => {
@@ -106,17 +113,31 @@ const Playground = () => {
 
     const maskImage = maskCanvas.toDataURL("image/png");
 
-    runModel(prompt, uploadedImage, maskImage);
+    // 将 Data URL 转换为 Blob
+    const res = await fetch(maskImage);
+    const blob = await res.blob();
+
+    // 创建 File 对象
+    const file = new File([blob], "mask.png", { type: "image/png" });
+    setLoading(true);
+    const response = await uploadImage(file);
+    setLoading(false);
+    const maskImageUrl = response.url;
+
+    runModel(prompt, uploadedImage, maskImageUrl);
   };
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setUploadedImage(e.target?.result as string);
-      };
-      reader.readAsDataURL(file);
+      setLoading(true);
+      const response = await uploadImage(file);
+      setLoading(false);
+      if (response.url) {
+        setUploadedImage(response.url);
+      }
     }
   };
 
@@ -127,6 +148,20 @@ const Playground = () => {
 
   const stopDrawing = () => {
     setIsDrawing(false);
+  };
+
+  const handleReset = () => {
+    if (drawHistory.length > 0) {
+      const canvas = canvasRef.current;
+      const maskCanvas = maskCanvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      const maskCtx = maskCanvas?.getContext("2d");
+      if (canvas && ctx && maskCanvas && maskCtx) {
+        const initialState = drawHistory[0];
+        ctx.putImageData(initialState.main, 0, 0);
+        maskCtx.putImageData(initialState.mask, 0, 0);
+      }
+    }
   };
 
   const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -154,30 +189,6 @@ const Playground = () => {
     }
   };
 
-  const handleUndo = () => {
-    if (currentStep > 0) {
-      setCurrentStep((prev) => prev - 1);
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
-      if (canvas && ctx) {
-        ctx.putImageData(drawHistory[currentStep - 1], 0, 0);
-      }
-    }
-  };
-
-  const handleClear = () => {
-    const canvas = canvasRef.current;
-    const maskCanvas = maskCanvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    const maskCtx = maskCanvas?.getContext("2d");
-    if (canvas && ctx && maskCanvas && maskCtx) {
-      ctx.putImageData(drawHistory[0], 0, 0);
-      maskCtx.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
-      setDrawHistory([drawHistory[0]]);
-      setCurrentStep(0);
-    }
-  };
-
   return (
     <div
       style={{ height: imageHeight ? `${imageHeight + 100}px` : "600px" }}
@@ -195,8 +206,9 @@ const Playground = () => {
           <button
             className="w-full py-2 mb-4 bg-blue-500 text-white rounded"
             onClick={handleGenerate}
+            disabled={loading}
           >
-            Generate
+            {generateBtnText}
           </button>
           <label className="flex items-center justify-center w-full py-2 bg-gray-200 text-gray-700 rounded cursor-pointer">
             <FaUpload className="mr-2" />
@@ -249,8 +261,9 @@ const Playground = () => {
                 {generatedImage ? (
                   <Image
                     src={generatedImage}
+                    height={imageHeight}
+                    width={containerWidth}
                     alt="Generated"
-                    className="px-2"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
@@ -264,10 +277,7 @@ const Playground = () => {
 
         {/* 底部工具栏 */}
         <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-full px-6 py-3 flex justify-center space-x-6 min-w-96">
-          <button className="text-2xl" onClick={handleUndo}>
-            <IoMdArrowRoundBack />
-          </button>
-          <button className="text-lg" onClick={handleClear}>
+          <button className="text-lg" onClick={handleReset}>
             <FaUndo />
           </button>
           <button className="text-lg">
@@ -291,6 +301,11 @@ const Playground = () => {
       </a>
       <ImageEditor /> */}
       <canvas ref={maskCanvasRef} style={{ display: "none" }} />
+      {loading && (
+        <div className="w-full h-full flex items-center justify-center absolute top-0 left-0 bg-black bg-opacity-50">
+          <span className="loading loading-dots loading-lg text-white"></span>
+        </div>
+      )}
     </div>
   );
 };

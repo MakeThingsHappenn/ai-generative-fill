@@ -7,7 +7,7 @@ import axios, {
 // 创建 Axios 实例
 const instance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "/api", // 设置基础 URL
-  timeout: 15000, // 请求超时时间
+  timeout: 550000, // 请求超时时间
   headers: {
     "Content-Type": "application/json",
   },
@@ -65,8 +65,8 @@ const get = (url: string, params = {}) => {
 };
 
 // 封装 POST 请求
-const post = (url: string, data = {}) => {
-  return instance.post(url, data);
+const post = (url: string, data = {}, config = {}) => {
+  return instance.post(url, data, config);
 };
 
 // 封装 PUT 请求
