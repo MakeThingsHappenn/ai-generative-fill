@@ -28,7 +28,7 @@ export default async function HomePage({
       {/* Hero Section */}
       <Hero locale={dict.Hero} CTALocale={dict.CTAButton} lang={langName} />
       <Feature
-        id={getHrefByLabel("Features")}
+        id={getHrefByLabel("Use Cases")}
         locale={dict.Feature}
         CTALocale={dict.CTAButton}
       />
@@ -38,11 +38,19 @@ export default async function HomePage({
         CTALocale={dict.CTAButton}
       /> */}
       {/* <Discover locale={dict.Discover} /> */}
-      <CallSection locale={dict.CallSection} CTALocale={dict.CTAButton} />
+      <CallSection
+        locale={dict.CallSection}
+        CTALocale={dict.CTAButton}
+        lang={langName}
+      />
       <HowItWork id={getHrefByLabel("How it Work")} locale={dict.HowItWork} />
       {/* <Pricing id={getHrefByLabel("Pricing")} locale={dict.Pricing} /> */}
       <FAQ id={getHrefByLabel("FAQ")} langName={langName} />
-      <CallSection2 locale={dict.CallSection2} CTALocale={dict.CTAButton} />
+      <CallSection2
+        locale={dict.CallSection2}
+        CTALocale={dict.CTAButton}
+        lang={langName}
+      />
     </>
   );
 }

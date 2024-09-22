@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import CaseImage from "@/components/common/caseImage";
+import { uploadImage } from "@/api";
 
 const Hero = ({
   locale,
@@ -17,11 +18,27 @@ const Hero = ({
   const router = useRouter();
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleFile = useCallback(
-    (file: File) => {
+    async (file: File) => {
       if (file.type.startsWith("image/")) {
-        router.push(`/${lang}/playground`);
+        setIsUploading(true);
+        try {
+          const res = await uploadImage(file);
+          const uploadedImageUrl = res.url;
+
+          // Encode the image URL to safely pass it as a query parameter
+          const encodedImageUrl = encodeURIComponent(uploadedImageUrl);
+
+          // Navigate to the playground page with the uploaded image URL
+          router.push(`/${lang}/playground?image=${encodedImageUrl}`);
+        } catch (error) {
+          console.error("Error uploading image:", error);
+          alert("Failed to upload image. Please try again.");
+        } finally {
+          setIsUploading(false);
+        }
       } else {
         alert("Please select an image file.");
       }

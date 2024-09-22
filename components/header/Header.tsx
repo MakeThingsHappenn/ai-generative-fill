@@ -32,6 +32,10 @@ const Header = ({ lang }: { lang: string }) => {
     }
   };
 
+  const goToPlayground = () => {
+    router.push(`/${lang}/playground`);
+  };
+
   return (
     <header className="py-10 mx-auto px-4 sm:px-6 lg:px-8 bg-homeBackground h-4">
       <nav className="container flex items-center justify-between px-8 mx-auto h-full max-2xl:w-full">
@@ -41,6 +45,15 @@ const Header = ({ lang }: { lang: string }) => {
             title={siteConfig.name}
             href="/"
           >
+            <Image
+              src="/logo.png"
+              alt="Illusion Diffusion logo"
+              width="24"
+              height="24"
+              decoding="async"
+              data-nimg="1"
+              className="w-10"
+            />
             <span className="font-extrabold text-xl sm:text-2xl">
               {siteConfig.name}
             </span>
@@ -70,7 +83,7 @@ const Header = ({ lang }: { lang: string }) => {
         </div>
         <div className="hidden lg:flex lg:justify-end lg:flex-1">
           <div className={styles.signupButtonWrapper}>
-            <button className={styles.signupButton}>
+            <button className={styles.signupButton} onClick={goToPlayground}>
               {siteConfig.buttonText}
             </button>
             <div className={styles.circleEffect}></div>
@@ -142,7 +155,7 @@ const Header = ({ lang }: { lang: string }) => {
                 </nav>
                 <div className="divider"></div>
                 <div className="flex flex-col">
-                  <button className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={goToPlayground}>
                     {siteConfig.buttonText}
                   </button>
                 </div>

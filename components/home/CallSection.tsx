@@ -1,10 +1,21 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 const CallSection = ({
   locale,
   CTALocale,
+  lang,
 }: {
   locale: any;
   CTALocale: any;
+  lang: string;
 }) => {
+  const router = useRouter();
+
+  const goToPlayground = () => {
+    router.push(`/${lang}/playground`);
+  };
+
   return (
     <>
       <div className="bg-homeBackground w-full">
@@ -15,7 +26,7 @@ const CallSection = ({
             {locale.title}
           </h2>
           <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-            <a className="btn btn-primary btn-wide" href="/app">
+            <a className="btn btn-primary btn-wide" onClick={goToPlayground}>
               {CTALocale.title}
             </a>
           </div>

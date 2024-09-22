@@ -1,12 +1,22 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const CallSection2 = ({
   locale,
   CTALocale,
+  lang,
 }: {
   locale: any;
   CTALocale: any;
+  lang: string;
 }) => {
+  const router = useRouter();
+
+  const goToPlayground = () => {
+    router.push(`/${lang}/playground`);
+  };
+
   return (
     <>
       <Image
@@ -26,7 +36,7 @@ const CallSection2 = ({
             <p className="text-lg opacity-80 mb-12 md:mb-16">
               {locale.description}
             </p>
-            <a className="btn btn-primary btn-wide" href="/app">
+            <a className="btn btn-primary btn-wide" onClick={goToPlayground}>
               {CTALocale.title}
             </a>
           </div>

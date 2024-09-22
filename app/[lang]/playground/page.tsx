@@ -5,8 +5,10 @@ import { FaUndo, FaPaintBrush, FaEraser, FaUpload } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import ImageEditor from "../../../components/playground/imageEditor";
 import { generateImage, uploadImage } from "@/api";
+import { useSearchParams } from "next/navigation";
 
 const Playground = () => {
+  const searchParams = useSearchParams();
   const [prompt, setPrompt] = useState("");
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
@@ -23,6 +25,18 @@ const Playground = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const imageParam = searchParams.get("image");
+    if (imageParam) {
+      const decodedImageUrl = decodeURIComponent(imageParam);
+      setUploadedImage(decodedImageUrl);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    handleSetCanvas();
+  }, [uploadedImage]);
+
+  const handleSetCanvas = () => {
     if (imageContainerRef.current && uploadedImage) {
       const img = document.createElement("img");
       img.crossOrigin = "Anonymous";
@@ -60,7 +74,7 @@ const Playground = () => {
       };
       img.src = uploadedImage;
     }
-  }, [uploadedImage]);
+  };
 
   const runModel = async (
     prompt: string,

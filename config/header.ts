@@ -1,20 +1,21 @@
 export const HEADER_LINK_HREFS = [
+  // {
+  //   label: "How to Use",
+  //   href: "#howToUse",
+  // },
   {
-    label: "How to Use",
-    href: "#howToUse",
+    label: "Playground",
+    href: "/playground",
   },
   {
-    label: "Features",
-    href: "#Features",
+    label: "Use Cases",
+    href: "#UseCases",
   },
   {
     label: "How it Work",
     href: "#howItWork",
   },
-  {
-    label: "Playground",
-    href: "/playground",
-  },
+
   // {
   //   label: "Pricing",
   //   href: "#Pricing",
