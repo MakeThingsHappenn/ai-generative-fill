@@ -26,7 +26,7 @@ const Hero = ({
         setIsUploading(true);
         try {
           const res = await uploadImage(file);
-          const uploadedImageUrl = res.url;
+          const uploadedImageUrl = res.data.url;
 
           // Encode the image URL to safely pass it as a query parameter
           const encodedImageUrl = encodeURIComponent(uploadedImageUrl);
@@ -74,7 +74,7 @@ const Hero = ({
     <>
       <section className="bg-homeBackground w-full">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 lg:py-20">
-          <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start order-2 sm:order-1">
+          <div className="w-[101%] flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start order-2 sm:order-1">
             <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
               {locale.title}
             </h1>

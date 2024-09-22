@@ -102,7 +102,6 @@ const ImageEditor: React.FC = () => {
 
         // Set the mask image state
         setMaskImage(maskCanvas.toDataURL());
-        console.log(maskCanvas.toDataURL());
       }
     }
   };

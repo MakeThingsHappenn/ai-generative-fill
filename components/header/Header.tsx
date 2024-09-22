@@ -19,7 +19,6 @@ const Header = ({ lang }: { lang: string }) => {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    console.log("handleSmoothScroll");
     e.preventDefault();
     const targetId = href.replace(/.*\#/, "");
     const elem = document.getElementById("#" + targetId);

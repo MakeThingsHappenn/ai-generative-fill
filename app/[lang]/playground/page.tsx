@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FaUndo, FaPaintBrush, FaEraser, FaUpload } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import ImageEditor from "../../../components/playground/imageEditor";
@@ -32,11 +32,7 @@ const Playground = () => {
     }
   }, [searchParams]);
 
-  useEffect(() => {
-    handleSetCanvas();
-  }, [uploadedImage]);
-
-  const handleSetCanvas = () => {
+  const handleSetCanvas = useCallback(() => {
     if (imageContainerRef.current && uploadedImage) {
       const img = document.createElement("img");
       img.crossOrigin = "Anonymous";
@@ -74,7 +70,13 @@ const Playground = () => {
       };
       img.src = uploadedImage;
     }
-  };
+  }, [uploadedImage]);
+
+  useEffect(() => {
+    if (uploadedImage) {
+      handleSetCanvas();
+    }
+  }, [uploadedImage, handleSetCanvas]);
 
   const runModel = async (
     prompt: string,
@@ -136,7 +138,7 @@ const Playground = () => {
     setLoading(true);
     const response = await uploadImage(file);
     setLoading(false);
-    const maskImageUrl = response.url;
+    const maskImageUrl = response.data.url;
 
     runModel(prompt, uploadedImage, maskImageUrl);
   };
@@ -149,8 +151,8 @@ const Playground = () => {
       setLoading(true);
       const response = await uploadImage(file);
       setLoading(false);
-      if (response.url) {
-        setUploadedImage(response.url);
+      if (response.data.url) {
+        setUploadedImage(response.data.url);
       }
     }
   };

@@ -33,7 +33,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (response: AxiosResponse) => {
     // 对响应数据做点什么
-    return response.data;
+    return response;
   },
   (error: any) => {
     // 对响应错误做点什么
