@@ -2,7 +2,7 @@ export const FAQS_EN = [
   {
     title: "What is AI Generative Fill?",
     content:
-      "AI Generative Fill is an advanced tool that uses artificial intelligence to extend and outpaint images. By selecting an area and providing a prompt, our AI generates and replaces that part of the image seamlessly. AI Generative Fill is perfect for both professionals and hobbyists.",
+      "AI Generative Fill online is a free tool that uses artificial intelligence to extend and inpaint images. By selecting an area and providing a prompt, our AI generates and replaces that part of the image seamlessly. AI Generative Fill is perfect for both professionals and hobbyists.",
   },
   // {
   //   title: "What are the main features of AI Generative Fill?",
@@ -12,7 +12,7 @@ export const FAQS_EN = [
   {
     title: "Do I need any technical background to use AI Generative Fill?",
     content:
-      "No technical background is required to use AI Generative Fill. Our user-friendly interface makes it easy for anyone to start editing images with just a few clicks using AI Generative Fill.",
+      "No technical background is required to use AI Generative Fill online. Our user-friendly interface makes it easy for anyone to start editing images with just a few clicks.",
   },
   // {
   //   title: "What are the use cases for AI Generative Fill?",
@@ -22,13 +22,13 @@ export const FAQS_EN = [
   {
     title: "How do I start using AI Generative Fill?",
     content:
-      "Simply upload the image you want to edit, select the area to be replaced, enter your prompt, and click start. AI Generative Fill will automatically generate and replace the selected area with high-quality content using AI Generative Fill.",
+      "Simply upload the image you want to edit, select the area to be replaced, enter your prompt, and click generate. AI Generative Fill will automatically generate and replace the area with high-quality content.",
   },
   {
     title:
       "How accurate is AI Generative Fill in matching the existing image style?",
     content:
-      "AI Generative Fill uses advanced algorithms to match the style, color, and texture of the existing image, ensuring seamless integration and high-quality results.",
+      "AI Generative Fill online uses advanced algorithms to match the style, color, and texture of the existing image, ensuring seamless integration and high-quality results.",
   },
   // {
   //   title: "Can AI Generative Fill be used for commercial purposes?",

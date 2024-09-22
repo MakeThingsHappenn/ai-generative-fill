@@ -28,6 +28,7 @@ export const metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  canonical: siteConfig.canonical,
   authors: siteConfig.authors,
   creator: siteConfig.creator,
   icons: siteConfig.icons,

@@ -1,7 +1,7 @@
 {
   "Hero": {
-    "title": "Redefine Your Image Creations",
-    "description": "Upload an image, select an area, and let AI Generative Fill create something new within seconds. Start transforming your images with just a prompt—unleash your creativity now!",
+    "title": "Transform Your Images with AI Magic",
+    "description": "Unlock the power of AI Generative Fill online for free! Simply upload, select an area, and watch as AI creates stunning content based on your prompts. Experience Photoshop-like magic without the complexity or cost.",
     "noRequire": "No credit card required.",
     "lovedUsersCount": "153,000+",
     "users": "users"
@@ -22,8 +22,8 @@
     "title": "Transform your images with AI magic now!"
   },
   "CallSection2": {
-    "title": "Try AI Generative Fill Today!",
-    "description": "Transform your images with AI magic now!"
+    "title": "Try AI Generative Fill online for free!",
+    "description": "No credit card required."
   },
   "HowItWork": {
     "subTitle": "Better Understanding",
@@ -31,19 +31,19 @@
     "description": "Step by step, here's how AI Generative Fill works:",
     "steps": [
       {
-        "title": "AI Analysis: ",
-        "description": "When you upload an image, AI Generative Fill analyzes the content and context of the selected area."
+        "title": "AI Analysis",
+        "description": "When you upload an image, AI Generative Fill analyzes the content and context of the area."
       },
       {
-        "title": "Prompt Integration: ",
+        "title": "Prompt Integration",
         "description": "The AI interprets your prompt, understanding the desired outcome for the chosen part of the image."
       },
       {
-        "title": "Content Generation: ",
+        "title": "Content Generation",
         "description": "Using advanced algorithms, AI Generative Fill generates new objects or elements that seamlessly blend into the selected area."
       },
       {
-        "title": "Real-Time Rendering: ",
+        "title": "Real-Time Rendering",
         "description": "The final image is rendered in real-time, giving you an instant preview of the transformed content."
       }
     ]
