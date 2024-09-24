@@ -26,7 +26,8 @@ const Playground = () => {
   const [containerWidth, setContainerWidth] = useState(0);
   const [generateBtnText, setGenerateBtnText] = useState("Generate");
   const [loading, setLoading] = useState(false);
-  const [noCredits, setNoCredits] = useState(false);
+  const [alert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
     const imageParam = searchParams.get("image");
@@ -97,7 +98,7 @@ const Playground = () => {
     generateImage(params).then((res: any) => {
       setGenerateBtnText("Generate");
       setLoading(false);
-      setGeneratedImage(res);
+      setGeneratedImage(res.data);
       creditsStore.updateCredits();
     });
   };
@@ -105,10 +106,15 @@ const Playground = () => {
   const handleGenerate = async () => {
     const credits = creditsStore.credits;
     if (credits === null || credits <= 0) {
-      setNoCredits(true);
+      setShowAlert(true);
+      setAlertMessage("No credits left, please sign up for more credits.");
       return;
     }
-    if (!canvasRef.current || !maskCanvasRef.current) return;
+    if (!canvasRef.current || !maskCanvasRef.current) {
+      setShowAlert(true);
+      setAlertMessage("Please upload an image first.");
+      return;
+    }
 
     // Generate mask
     const maskCanvas = maskCanvasRef.current;
@@ -284,7 +290,6 @@ const Playground = () => {
                 height: imageHeight ? `${imageHeight}px` : "560px",
               }}
             >
-              {generatedImage}
               <div className="w-full h-full flex items-center justify-center">
                 {generatedImage ? (
                   <Image
@@ -334,12 +339,12 @@ const Playground = () => {
           <span className="loading loading-dots loading-lg text-white"></span>
         </div>
       )}
-      {noCredits && (
+      {alert && (
         <div className="toast">
           <div className="alert alert-info bg-yellow-400">
-            <span>No credits left, please sign up for more credits.</span>
+            <span>{alertMessage}</span>
             <IoIosCloseCircleOutline
-              onClick={() => setNoCredits(false)}
+              onClick={() => setShowAlert(false)}
               className="cursor-pointer"
             />
           </div>
