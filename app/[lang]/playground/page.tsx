@@ -6,6 +6,9 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import ImageEditor from "../../../components/playground/imageEditor";
 import { generateImage, uploadImage } from "@/api";
 import { useSearchParams } from "next/navigation";
+import { creditsStore } from "@/store/credits";
+import { observer } from "mobx-react-lite";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const Playground = () => {
   const searchParams = useSearchParams();
@@ -23,6 +26,7 @@ const Playground = () => {
   const [containerWidth, setContainerWidth] = useState(0);
   const [generateBtnText, setGenerateBtnText] = useState("Generate");
   const [loading, setLoading] = useState(false);
+  const [noCredits, setNoCredits] = useState(false);
 
   useEffect(() => {
     const imageParam = searchParams.get("image");
@@ -91,12 +95,19 @@ const Playground = () => {
     setGenerateBtnText("Generating...");
     setLoading(true);
     generateImage(params).then((res: any) => {
-      setGenerateBtnText("Generating");
+      setGenerateBtnText("Generate");
       setLoading(false);
       setGeneratedImage(res);
+      creditsStore.updateCredits();
     });
   };
+
   const handleGenerate = async () => {
+    const credits = creditsStore.credits;
+    if (credits === null || credits <= 0) {
+      setNoCredits(true);
+      return;
+    }
     if (!canvasRef.current || !maskCanvasRef.current) return;
 
     // Generate mask
@@ -273,6 +284,7 @@ const Playground = () => {
                 height: imageHeight ? `${imageHeight}px` : "560px",
               }}
             >
+              {generatedImage}
               <div className="w-full h-full flex items-center justify-center">
                 {generatedImage ? (
                   <Image
@@ -322,9 +334,20 @@ const Playground = () => {
           <span className="loading loading-dots loading-lg text-white"></span>
         </div>
       )}
+      {noCredits && (
+        <div className="toast">
+          <div className="alert alert-info bg-yellow-400">
+            <span>No credits left, please sign up for more credits.</span>
+            <IoIosCloseCircleOutline
+              onClick={() => setNoCredits(false)}
+              className="cursor-pointer"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Playground;
+export default observer(Playground);
 

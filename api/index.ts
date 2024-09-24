@@ -22,3 +22,12 @@ export const uploadImage = async (
     },
   });
 };
+
+export const getCredits = (params: any) => {
+  return request.get("/credits", params);
+};
+
+export const minusCredits = (params: any) => {
+  return request.post("/credits", params);
+};
+

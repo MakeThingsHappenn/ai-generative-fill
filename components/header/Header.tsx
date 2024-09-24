@@ -2,12 +2,14 @@
 import { siteConfig } from "@/config/site";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { HEADER_LINK_HREFS } from "@/config/header";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./Header.module.css";
+import { creditsStore } from "@/store/credits";
+import { observer } from "mobx-react-lite";
 
 const links = HEADER_LINK_HREFS;
 
@@ -80,7 +82,12 @@ const Header = ({ lang }: { lang: string }) => {
             );
           })}
         </div>
-        <div className="hidden lg:flex lg:justify-end lg:flex-1">
+        <div className="hidden lg:flex lg:justify-end lg:flex-1 items-center">
+          {creditsStore.creditLoading ? (
+            <span className="mr-10">Loading...</span>
+          ) : (
+            <span className="mr-10">Free Credits: {creditsStore.credits}</span>
+          )}
           <div className={styles.signupButtonWrapper}>
             <button className={styles.signupButton} onClick={goToPlayground}>
               {siteConfig.buttonText}
@@ -167,5 +174,5 @@ const Header = ({ lang }: { lang: string }) => {
   );
 };
 
-export default Header;
+export default observer(Header);
 
