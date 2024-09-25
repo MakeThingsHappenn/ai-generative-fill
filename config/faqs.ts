@@ -2,7 +2,7 @@ export const FAQS_EN = [
   {
     title: "What is AI Generative Fill?",
     content:
-      "AI Generative Fill online is a free tool that uses artificial intelligence to extend and inpaint images. By selecting an area and providing a prompt, our AI generates and replaces that part of the image seamlessly. AI Generative Fill is perfect for both professionals and hobbyists.",
+      "AI Generative Fill free is a free tool that uses artificial intelligence to extend and inpaint images. By selecting an area and providing a prompt, our AI generates and replaces that part of the image seamlessly. AI Generative Fill is perfect for both professionals and hobbyists.",
   },
   // {
   //   title: "What are the main features of AI Generative Fill?",
@@ -12,7 +12,7 @@ export const FAQS_EN = [
   {
     title: "Do I need any technical background to use AI Generative Fill?",
     content:
-      "No technical background is required to use AI Generative Fill online. Our user-friendly interface makes it easy for anyone to start editing images with just a few clicks.",
+      "No technical background is required to use AI Generative Fill free. Our user-friendly interface makes it easy for anyone to start editing images with just a few clicks.",
   },
   // {
   //   title: "What are the use cases for AI Generative Fill?",
