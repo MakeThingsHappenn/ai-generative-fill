@@ -16,10 +16,10 @@ export const HEADER_LINK_HREFS = [
     href: "#howItWork",
   },
 
-  // {
-  //   label: "Pricing",
-  //   href: "#Pricing",
-  // },
+  {
+    label: "Pricing",
+    href: "#Pricing",
+  },
   {
     label: "FAQ",
     href: "#FAQ",

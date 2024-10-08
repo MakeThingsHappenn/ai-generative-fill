@@ -44,7 +44,7 @@ export default async function HomePage({
         lang={langName}
       />
       <HowItWork id={getHrefByLabel("How it Work")} locale={dict.HowItWork} />
-      {/* <Pricing id={getHrefByLabel("Pricing")} locale={dict.Pricing} /> */}
+      <Pricing id={getHrefByLabel("Pricing")} locale={dict.Pricing} />
       <FAQ id={getHrefByLabel("FAQ")} langName={langName} />
       <CallSection2
         locale={dict.CallSection2}

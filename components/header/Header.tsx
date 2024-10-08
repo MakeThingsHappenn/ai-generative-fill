@@ -10,6 +10,8 @@ import Image from "next/image";
 import styles from "./Header.module.css";
 import { creditsStore } from "@/store/credits";
 import { observer } from "mobx-react-lite";
+import { signIn } from "@/lib/oath";
+console.log("signIn", signIn);
 
 const links = HEADER_LINK_HREFS;
 
@@ -94,6 +96,15 @@ const Header = ({ lang }: { lang: string }) => {
             </button>
             <div className={styles.circleEffect}></div>
           </div>
+          <form
+            action={async () => {
+              "use client";
+              console.log("signIn", signIn);
+              await signIn("google", { redirect: "/en" });
+            }}
+          >
+            {/* <button>Google 登录</button> */}
+          </form>
           {/* <button className="btn btn-primary">{siteConfig.buttonText}</button> */}
         </div>
 
