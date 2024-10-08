@@ -35,7 +35,7 @@ const Discover = ({ locale }: { locale: any }) => {
                           decoding="async"
                           data-nimg="1"
                           className="w-full aspect-square object-cover"
-                          src="/home/9.png"
+                          src="/home/9.webp"
                         />
                       );
                     })}

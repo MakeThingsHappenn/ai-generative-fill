@@ -49,7 +49,7 @@ const Header = ({ lang }: { lang: string }) => {
             href="/"
           >
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Illusion Diffusion logo"
               width="24"
               height="24"

@@ -32,8 +32,8 @@ const baseSiteConfig = {
   nextThemeColor: "light", // next-theme option: system | dark | light
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/logo.png",
+    shortcut: "/favicon-16x16.webp",
+    apple: "/logo.webp",
   },
   headerLinks: [
     { name: "repo", href: OPEN_SOURCE_URL, icon: BsGithub },

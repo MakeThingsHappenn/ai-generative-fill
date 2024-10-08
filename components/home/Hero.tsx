@@ -112,8 +112,8 @@ const Hero = ({
           </div>
           <div className="lg:w-full order-1 sm:order-2">
             <CaseImage
-              beforeImg="/home/girl-before.png"
-              afterImg="/home/girl-after.png"
+              beforeImg="/home/girl-before.webp"
+              afterImg="/home/girl-after.webp"
               width={500}
               height={500}
               direction="horizon"

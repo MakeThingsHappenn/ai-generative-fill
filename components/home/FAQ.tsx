@@ -3,7 +3,7 @@ import { ALL_FAQS } from "@/config/faqs";
 
 const FAQ = ({ id, langName }: { id: string; langName: string }) => {
   const FAQS = ALL_FAQS[`FAQS_${langName.toUpperCase()}`];
-
+  console.log(FAQS);
   return (
     <>
       <section className="bg-base-200 -mb-60" id={id}>
