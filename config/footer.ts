@@ -4,7 +4,7 @@ export const FOOTER_LINKS_EN = [
     links: [
       {
         title: "Contact Us",
-        href: "mailto:contact@generativefill.net",
+        href: "mailto:team@ai-generative-fill.com",
       },
     ],
   },
@@ -48,7 +48,7 @@ export const FOOTER_LINKS_ZH = [
     links: [
       {
         title: "Contact Us",
-        href: "mailto:contact@illusiondiffusion.net",
+        href: "mailto:team@ai-generative-fill.com",
       },
     ],
   },
@@ -83,7 +83,7 @@ export const FOOTER_LINKS_JA = [
     links: [
       {
         title: "Contact Us",
-        // href: "mailto:contact@aigenerativefill.net",
+        href: "mailto:team@ai-generative-fill.com",
       },
     ],
   },
@@ -118,7 +118,7 @@ export const FOOTER_LINKS_AR = [
     links: [
       {
         title: "Contact Us",
-        href: "mailto:contact@illusiondiffusion.net",
+        href: "mailto:team@ai-generative-fill.com",
       },
     ],
   },
@@ -153,7 +153,7 @@ export const FOOTER_LINKS_ES = [
     links: [
       {
         title: "Contact Us",
-        href: "mailto:contact@illusiondiffusion.net",
+        href: "mailto:team@ai-generative-fill.com",
       },
     ],
   },
@@ -188,7 +188,7 @@ export const FOOTER_LINKS_RU = [
     links: [
       {
         title: "Contact Us",
-        href: "mailto:contact@illusiondiffusion.net",
+        href: "mailto:team@ai-generative-fill.com",
       },
     ],
   },
