@@ -50,7 +50,7 @@ const Header = ({ lang }: { lang: string }) => {
           >
             <Image
               src="/logo.webp"
-              alt="Illusion Diffusion logo"
+              alt="Ai Generative Fill logo"
               width="24"
               height="24"
               decoding="async"

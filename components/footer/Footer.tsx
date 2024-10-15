@@ -17,7 +17,7 @@ const Footer = ({ lang }: { lang: string }) => {
             <div className="xl:grid xl:grid-cols-3 xl:gap-8">
               <Image
                 src="/logo.webp"
-                alt="Illusion Diffusion logo"
+                alt="Ai Generative Fill logo"
                 width="32"
                 height="32"
                 decoding="async"

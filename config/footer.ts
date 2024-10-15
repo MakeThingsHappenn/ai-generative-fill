@@ -29,7 +29,7 @@ export const FOOTER_LINKS_EN = [
     title: "Legal",
     links: [
       {
-        title: "Privacy",
+        title: "Privacy Policy",
         href: "/privacy",
         internal: true,
       },
@@ -64,7 +64,7 @@ export const FOOTER_LINKS_ZH = [
     title: "Legal",
     links: [
       {
-        title: "Privacy",
+        title: "Privacy Policy",
         href: "/privacy",
         internal: true,
       },
@@ -99,7 +99,7 @@ export const FOOTER_LINKS_JA = [
     title: "Legal",
     links: [
       {
-        title: "Privacy",
+        title: "Privacy Policy",
         href: "/privacy",
         internal: true,
       },
@@ -134,7 +134,7 @@ export const FOOTER_LINKS_AR = [
     title: "Legal",
     links: [
       {
-        title: "Privacy",
+        title: "Privacy Policy",
         href: "/privacy",
         internal: true,
       },
@@ -169,7 +169,7 @@ export const FOOTER_LINKS_ES = [
     title: "Legal",
     links: [
       {
-        title: "Privacy",
+        title: "Privacy Policy",
         href: "/privacy",
         internal: true,
       },
@@ -204,7 +204,7 @@ export const FOOTER_LINKS_RU = [
     title: "Legal",
     links: [
       {
-        title: "Privacy",
+        title: "Privacy Policy",
         href: "/privacy",
         internal: true,
       },

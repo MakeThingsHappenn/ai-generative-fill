@@ -28,7 +28,7 @@ const Discover = ({ locale }: { locale: any }) => {
                       return (
                         <Image
                           key={i}
-                          alt="Illusion Diffusion AI Art Image 1"
+                          alt="Ai Generative Fill AI Art Image 1"
                           loading="lazy"
                           width="352"
                           height="352"
