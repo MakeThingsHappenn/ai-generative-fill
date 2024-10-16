@@ -132,8 +132,8 @@ const TOS = () => {
                 <p className="font-bold">6. Limitation of Liability</p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
-                    AI Generative Fill provides its services on an "as is" and
-                    "as available" basis.
+                    AI Generative Fill provides its services on an &quot;as
+                    is&quot; and &quot;as available&quot; basis.
                   </li>
                   <li>
                     We are not liable for any indirect, incidental, special,

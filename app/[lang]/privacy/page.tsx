@@ -132,7 +132,7 @@ const PrivacyPolicy = () => {
               </div>
 
               <div>
-                <p className="font-bold">7. Children's Privacy</p>
+                <p className="font-bold">7. Children&apos;s Privacy</p>
                 <p>
                   Our services are not intended for children under the age of
                   13. We do not knowingly collect personal information from
