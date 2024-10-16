@@ -32,7 +32,7 @@ const TOS = () => {
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
                     AI Generative Fill provides an AI-powered platform for
-                    extending and inpainting images.
+                    editing and processing images.
                   </li>
                   <li>
                     Our services are intended for both personal and commercial
@@ -103,15 +103,6 @@ const TOS = () => {
                     providers.
                   </li>
                   <li>
-                    Subscriptions are billed in advance on a monthly or annual
-                    basis.
-                  </li>
-                  <li>
-                    You may cancel your subscription at any time. Upon
-                    cancellation, you will continue to have access to the
-                    service until the end of your current billing period.
-                  </li>
-                  <li>
                     We offer a 7-day money-back guarantee for new subscriptions.
                     If you are not satisfied with our service, you may request a
                     full refund within 7 days of your initial purchase.
@@ -176,8 +167,8 @@ const TOS = () => {
                 <p className="font-bold">10. Governing Law</p>
                 <p>
                   These Terms of Service are governed by and construed in
-                  accordance with the laws of [Your Jurisdiction], without
-                  regard to its conflict of law principles.
+                  accordance with the laws of US, without regard to its conflict
+                  of law principles.
                 </p>
               </div>
 
