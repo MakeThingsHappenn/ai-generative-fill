@@ -10,7 +10,10 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ["replicate.delivery"],
+    domains: [
+      "replicate.delivery",
+      "ameerazam08-flux-1-dev-inpainting-model-beta-gpu.hf.space",
+    ],
   },
 };
 
