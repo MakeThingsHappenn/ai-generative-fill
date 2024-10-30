@@ -105,11 +105,11 @@ const Playground = () => {
 
   const handleGenerate = async () => {
     const credits = creditsStore.credits;
-    if (credits === null || credits <= 0) {
-      setShowAlert(true);
-      setAlertMessage("No credits left, please sign up for more credits.");
-      return;
-    }
+    // if (credits === null || credits <= 0) {
+    //   setShowAlert(true);
+    //   setAlertMessage("No credits left, please sign up for more credits.");
+    //   return;
+    // }
     if (!canvasRef.current || !maskCanvasRef.current) {
       setShowAlert(true);
       setAlertMessage("Please upload an image first.");

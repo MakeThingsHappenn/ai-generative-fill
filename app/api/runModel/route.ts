@@ -1,5 +1,5 @@
-// import { runModel } from "@/lib/replicate";
-import { runModel } from "@/lib/huggingface";
+import { runModel } from "@/lib/replicate";
+// import { runModel } from "@/lib/huggingface";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
