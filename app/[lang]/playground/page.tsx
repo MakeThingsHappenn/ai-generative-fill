@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { FaUndo, FaPaintBrush, FaEraser, FaUpload } from "react-icons/fa";
+import {
+  FaUndo,
+  FaPaintBrush,
+  FaEraser,
+  FaUpload,
+  FaDownload,
+} from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import ImageEditor from "../../../components/playground/imageEditor";
 import { generateImage, uploadImage } from "@/api";
@@ -105,11 +111,11 @@ const Playground = () => {
 
   const handleGenerate = async () => {
     const credits = creditsStore.credits;
-    // if (credits === null || credits <= 0) {
-    //   setShowAlert(true);
-    //   setAlertMessage("No credits left, please sign up for more credits.");
-    //   return;
-    // }
+    if (credits === null || credits <= 0) {
+      setShowAlert(true);
+      setAlertMessage("No credits left, please sign up for more credits.");
+      return;
+    }
     if (!canvasRef.current || !maskCanvasRef.current) {
       setShowAlert(true);
       setAlertMessage("Please upload an image first.");
@@ -222,6 +228,21 @@ const Playground = () => {
     }
   };
 
+  const handleDownload = async () => {
+    if (generatedImage) {
+      const response = await fetch(generatedImage);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "generated-image.png";
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    }
+  };
+
   return (
     <div
       style={{ height: imageHeight ? `${imageHeight + 100}px` : "600px" }}
@@ -290,14 +311,22 @@ const Playground = () => {
                 height: imageHeight ? `${imageHeight}px` : "560px",
               }}
             >
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center relative">
                 {generatedImage ? (
-                  <Image
-                    src={generatedImage}
-                    height={imageHeight}
-                    width={containerWidth}
-                    alt="Generated"
-                  />
+                  <>
+                    <button
+                      onClick={handleDownload}
+                      className="absolute top-2 right-2 z-10 p-2 bg-white bg-opacity-80 rounded-full hover:bg-opacity-100 transition-all"
+                    >
+                      <FaDownload className="text-gray-700" />
+                    </button>
+                    <Image
+                      src={generatedImage}
+                      height={imageHeight}
+                      width={containerWidth}
+                      alt="Generated"
+                    />
+                  </>
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
                     <p className="text-white">Generated Image</p>

@@ -13,6 +13,7 @@ const nextConfig = {
     domains: [
       "replicate.delivery",
       "ameerazam08-flux-1-dev-inpainting-model-beta-gpu.hf.space",
+      "images.ai-generative-fill.com",
     ],
   },
 };
