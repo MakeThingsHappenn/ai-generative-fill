@@ -293,6 +293,15 @@ const Playground = () => {
     }
   };
 
+  // 添加继续生成的处理函数
+  const handleContinueGenerate = () => {
+    if (generatedImage) {
+      setUploadedImage(generatedImage);
+      setGeneratedImage(null); // 清空生成图片区域
+      handleReset();
+    }
+  };
+
   return (
     <div
       style={{ height: imageHeight ? `${imageHeight + 100}px` : "600px" }}
@@ -332,11 +341,18 @@ const Playground = () => {
           >
             {generateBtnText}
           </button>
-          <label className="flex items-center justify-center w-full py-2 bg-gray-200 text-gray-700 rounded cursor-pointer">
+          <label className="flex items-center justify-center w-full py-2 bg-gray-200 text-gray-700 rounded cursor-pointer mb-4">
             <FaUpload className="mr-2" />
             Upload File
             <input type="file" className="hidden" onChange={handleFileUpload} />
           </label>
+          <button
+            className="flex items-center justify-center w-full py-2 bg-gray-200 text-gray-700 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={handleContinueGenerate}
+            disabled={!generatedImage}
+          >
+            Continue Generate
+          </button>
         </div>
 
         {/* 主区域 */}
