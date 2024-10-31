@@ -32,6 +32,7 @@ const Playground = () => {
   const [containerWidth, setContainerWidth] = useState(0);
   const [generateBtnText, setGenerateBtnText] = useState("Generate");
   const [loading, setLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState("");
   const [alert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
@@ -101,6 +102,7 @@ const Playground = () => {
     };
     setGenerateBtnText("Generating...");
     setLoading(true);
+    setLoadingText("Working magic on your prompt and generating image...");
     generateImage(params).then((res: any) => {
       setGenerateBtnText("Generate");
       setLoading(false);
@@ -159,6 +161,7 @@ const Playground = () => {
     // 创建 File 对象
     const file = new File([blob], "mask.png", { type: "image/png" });
     setLoading(true);
+    setLoadingText("Mask Generating...");
     const response = await uploadImage(file);
     setLoading(false);
     const maskImageUrl = response.data.url;
@@ -172,10 +175,12 @@ const Playground = () => {
     const file = event.target.files?.[0];
     if (file) {
       setLoading(true);
+      setLoadingText("Image Uploading...");
       const response = await uploadImage(file);
       setLoading(false);
       if (response.data.url) {
         setUploadedImage(response.data.url);
+        setGeneratedImage(""); // 新上传图片时，清除原有生成图片
       }
     }
   };
@@ -365,7 +370,10 @@ const Playground = () => {
       <canvas ref={maskCanvasRef} style={{ display: "none" }} />
       {loading && (
         <div className="w-full h-full flex items-center justify-center absolute top-0 left-0 bg-black bg-opacity-50">
-          <span className="loading loading-dots loading-lg text-white"></span>
+          <div className="flex flex-col items-center">
+            <span className="loading loading-dots loading-lg text-white"></span>
+            <div className="text-white">{loadingText}</div>
+          </div>
         </div>
       )}
       {alert && (
