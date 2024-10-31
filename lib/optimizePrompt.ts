@@ -13,7 +13,22 @@ const openai = new OpenAI({
   },
 });
 
-export async function optimizePrompt(userPrompt: string): Promise<string> {
+const openaiPrompt = `You are an expert Stable Diffusion inpainting prompt engineer. Your task is to create detailed prompts that help generate images fitting perfectly into existing scenes.
+
+Given the scene description and user's request, create a prompt that:
+1. Focuses on the specific object/area to be generated
+2. Matches the scene's lighting, perspective, and atmosphere
+3. Ensures seamless integration with surroundings
+4. Includes technical quality terms
+
+Format output as:
+PROMPT: [main prompt]
+NEG: [negative prompt]`;
+
+export async function optimizePrompt(
+  userPrompt: string,
+  sceneContext: string
+): Promise<string> {
   try {
     if (!process.env.OPENAI_API_KEY) {
       console.error("OpenAI API key is not configured");
@@ -21,22 +36,15 @@ export async function optimizePrompt(userPrompt: string): Promise<string> {
     }
 
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content:
-            "You are a Stable Diffusion inpainting prompt expert. Your task is to optimize user prompts for filling masked/selected areas in images. Follow these principles:\n\n" +
-            "1. Focus on describing WHAT should appear in the masked area, not the entire image\n" +
-            "2. Include specific details about textures, materials, and surface qualities\n" +
-            "3. Describe how the new content should connect with edges of the masked area\n" +
-            "4. Consider lighting, shadows, and perspective to match the surrounding image\n" +
-            "5. Use Stable Diffusion's preferred prompt style: clear, detailed noun phrases with key artistic terms\n\n" +
-            "Transform the user's input into a clear, detailed prompt. Return only the optimized prompt without explanation.",
+          content: openaiPrompt,
         },
         {
           role: "user",
-          content: userPrompt,
+          content: `Scene context: ${sceneContext}\nUser request: ${userPrompt}`,
         },
       ],
       temperature: 0.7,

@@ -14,12 +14,20 @@ const replicate = new Replicate({ auth: apiKey });
 
 // ... existing code ...
 
-export const runModel = async (prompt: string, image: string, mask: string) => {
+export const runModel = async (
+  prompt: string,
+  image: string,
+  mask: string,
+  sceneContext: string
+) => {
   try {
     // 优化 prompt
-    const optimizedPrompt = await optimizePrompt(prompt);
+    const optimizedPrompts = await optimizePrompt(prompt, sceneContext);
+    const [mainPrompt, negPrompt] = optimizedPrompts.split("\nNEG: ");
+    const cleanMainPrompt = mainPrompt.replace("PROMPT: ", "");
     const input = {
-      prompt: optimizedPrompt,
+      prompt: cleanMainPrompt,
+      negative_prompt: negPrompt,
       mask,
       image,
       num_outputs: 1,

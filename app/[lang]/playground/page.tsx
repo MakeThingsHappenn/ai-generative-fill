@@ -19,6 +19,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 const Playground = () => {
   const searchParams = useSearchParams();
   const [prompt, setPrompt] = useState("");
+  const [sceneContext, setSceneContext] = useState("");
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [imageHeight, setImageHeight] = useState<number>(0);
@@ -35,6 +36,9 @@ const Playground = () => {
   const [loadingText, setLoadingText] = useState("");
   const [alert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [lastPoint, setLastPoint] = useState<{ x: number; y: number } | null>(
+    null
+  );
 
   useEffect(() => {
     const imageParam = searchParams.get("image");
@@ -99,6 +103,7 @@ const Playground = () => {
       prompt,
       image: uploadedImage,
       mask: maskImage,
+      sceneContext,
     };
     setGenerateBtnText("Generating...");
     setLoading(true);
@@ -138,8 +143,8 @@ const Playground = () => {
         // Check if the pixel is the brush color (255, 200, 100)
         if (
           imageData.data[i] === 255 &&
-          imageData.data[i + 1] === 200 &&
-          imageData.data[i + 2] === 100
+          imageData.data[i + 1] === 255 &&
+          imageData.data[i + 2] === 255
         ) {
           imageData.data[i] =
             imageData.data[i + 1] =
@@ -148,6 +153,8 @@ const Playground = () => {
         } else {
           imageData.data[i] = imageData.data[i + 1] = imageData.data[i + 2] = 0; // Black
         }
+        // 设置完全不透明
+        imageData.data[i + 3] = 255; // Alpha
       }
       maskCtx?.putImageData(imageData, 0, 0);
     }
@@ -165,7 +172,6 @@ const Playground = () => {
     const response = await uploadImage(file);
     setLoading(false);
     const maskImageUrl = response.data.url;
-
     runModel(prompt, uploadedImage, maskImageUrl);
   };
 
@@ -187,11 +193,13 @@ const Playground = () => {
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     setIsDrawing(true);
+    setLastPoint(null);
     draw(e);
   };
 
   const stopDrawing = () => {
     setIsDrawing(false);
+    setLastPoint(null);
   };
 
   const handleReset = () => {
@@ -216,20 +224,57 @@ const Playground = () => {
     const maskCtx = maskCanvas.getContext("2d");
     if (ctx && maskCtx) {
       const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      ctx.strokeStyle = "rgba(255, 200, 100, 0.5)"; // 淡橘黄色，半透明
-      maskCtx.strokeStyle = "rgb(255, 200, 100)"; // 淡橘黄色，不透明
-      ctx.lineWidth = maskCtx.lineWidth = brushSize;
-      ctx.lineCap = maskCtx.lineCap = "round";
-      ctx.lineTo(x, y);
-      maskCtx.lineTo(x, y);
-      ctx.stroke();
-      maskCtx.stroke();
-      ctx.beginPath();
-      maskCtx.beginPath();
-      ctx.moveTo(x, y);
-      maskCtx.moveTo(x, y);
+
+      const currentPoint = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+      // 绘制单个点
+      const drawPoint = (x: number, y: number) => {
+        // 在主画布上显示预览
+        ctx.fillStyle = "rgba(255, 200, 100, 0.5)";
+        ctx.beginPath();
+        ctx.arc(x, y, brushSize / 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 在 mask 画布上绘制纯白色
+        maskCtx.fillStyle = "rgb(255, 255, 255)";
+        maskCtx.beginPath();
+        maskCtx.arc(x, y, brushSize / 2, 0, Math.PI * 2);
+        maskCtx.fill();
+      };
+
+      // 在两点之间插值
+      if (lastPoint) {
+        const dx = currentPoint.x - lastPoint.x;
+        const dy = currentPoint.y - lastPoint.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        const stepSize = brushSize / 4;
+        const numSteps = Math.max(1, Math.floor(distance / stepSize));
+
+        for (let i = 0; i <= numSteps; i++) {
+          const t = i / numSteps;
+          const x = lastPoint.x + dx * t;
+          const y = lastPoint.y + dy * t;
+          drawPoint(x, y);
+        }
+      } else {
+        drawPoint(currentPoint.x, currentPoint.y);
+      }
+
+      setLastPoint(currentPoint);
+      // const x = e.clientX - rect.left;
+      // const y = e.clientY - rect.top;
+
+      // // 为两个画布设置相同的绘制属性
+      // [ctx, maskCtx].forEach((context) => {
+      //   context.fillStyle =
+      //     context === ctx ? "rgba(255, 200, 100, 0.5)" : "rgb(255, 200, 100)";
+      //   context.beginPath();
+      //   context.arc(x, y, brushSize / 2, 0, Math.PI * 2);
+      //   context.fill();
+      // });
     }
   };
 
@@ -256,12 +301,30 @@ const Playground = () => {
       <div className="flex h-screen bg-homeBackground">
         {/* 左侧边栏 */}
         <div className="w-64 p-4">
-          <textarea
-            className="w-full h-52 p-2 mb-4 rounded bg-transparent border border-white text-white placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-white"
-            placeholder="Enter your prompt here..."
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-          />
+          {/* 场景描述输入框 */}
+          <div className="mb-4">
+            <label className="text-white text-sm mb-2 block">
+              Image Description
+            </label>
+            <textarea
+              className="w-full h-24 p-2 rounded bg-transparent placeholder:text-sm placeholder-gray-300 border border-white text-white focus:outline-none focus:ring-0 focus:border-white"
+              placeholder="Brief describe this image (e.g., 'A bench at sunset, someone sitting with a bag')"
+              value={sceneContext}
+              onChange={(e) => setSceneContext(e.target.value)}
+            />
+          </div>
+          {/* 生成需求输入框 */}
+          <div className="mb-4">
+            <label className="text-white text-sm mb-2 block">
+              What to Generate
+            </label>
+            <textarea
+              className="w-full h-24 p-2 rounded bg-transparent placeholder:text-sm placeholder-gray-300 border border-white text-white focus:outline-none focus:ring-0 focus:border-white"
+              placeholder="What would you like to add or replace in the selected area?"
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+            />
+          </div>
           <button
             className="w-full py-2 mb-4 bg-blue-500 text-white rounded"
             onClick={handleGenerate}
@@ -368,6 +431,7 @@ const Playground = () => {
       </a>
       <ImageEditor /> */}
       <canvas ref={maskCanvasRef} style={{ display: "none" }} />
+
       {loading && (
         <div className="w-full h-full flex items-center justify-center absolute top-0 left-0 bg-black bg-opacity-50">
           <div className="flex flex-col items-center">
