@@ -1,0 +1,415 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308,
+      "continue": true
+    },
+    {
+      "src": "/_next/__private/trace",
+      "dest": "/404",
+      "status": 404,
+      "continue": true
+    },
+    {
+      "src": "/404/?",
+      "status": 404,
+      "continue": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-prerender-revalidate"
+        }
+      ]
+    },
+    {
+      "src": "/500",
+      "status": 500,
+      "continue": true
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(.*).json",
+      "dest": "/$1",
+      "override": true,
+      "continue": true,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ]
+    },
+    {
+      "src": "^/index(?:/)?",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/",
+      "override": true,
+      "continue": true
+    },
+    {
+      "src": "^(?!/_next)/(?:/)?$",
+      "headers": {
+        "Location": "/en/"
+      },
+      "status": 307
+    },
+    {
+      "continue": true,
+      "src": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!api|_next\\/static|_next\\/image|.*\\.(?:ico|png|jpg|jpeg|svg|gif|webp|js|css|woff|woff2|ttf|eot)).*))(.json)?[\\/#\\?]?$",
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-prerender-revalidate",
+          "value": "610a7ecd2df716b353bc1accb95b0f8e"
+        }
+      ],
+      "middlewarePath": "middleware",
+      "middlewareRawSrc": [
+        "/((?!api|_next/static|_next/image|.*\\.(?:ico|png|jpg|jpeg|svg|gif|webp|js|css|woff|woff2|ttf|eot)).*)"
+      ],
+      "override": true
+    },
+    {
+      "src": "^/$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/A4mQRxtCP_VsKSfcm_Teq/index.json",
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/((?!_next/)(?:.*[^/]|.*))/?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/A4mQRxtCP_VsKSfcm_Teq/$1.json",
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/?",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc"
+        }
+      ],
+      "dest": "/index.rsc",
+      "headers": {
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/((?!.+\\.rsc).+?)(?:/)?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc"
+        }
+      ],
+      "dest": "/$1.rsc",
+      "headers": {
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(.*).json",
+      "dest": "/$1",
+      "continue": true,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ]
+    },
+    {
+      "src": "^/index(?:/)?",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/",
+      "continue": true
+    },
+    {
+      "src": "/index(\\.action|\\.rsc)",
+      "dest": "/",
+      "continue": true
+    },
+    {
+      "src": "/\\.prefetch\\.rsc$",
+      "dest": "/__index.prefetch.rsc",
+      "check": true
+    },
+    {
+      "src": "/(.+)/\\.prefetch\\.rsc$",
+      "dest": "/$1.prefetch.rsc",
+      "check": true
+    },
+    {
+      "src": "/\\.rsc$",
+      "dest": "/index.rsc",
+      "check": true
+    },
+    {
+      "src": "/(.+)/\\.rsc$",
+      "dest": "/$1.rsc",
+      "check": true
+    },
+    {
+      "src": "^/api(/.*)?$",
+      "status": 404
+    },
+    {
+      "handle": "miss"
+    },
+    {
+      "src": "^/api/(.+)(?:\\.(?:ts))$",
+      "dest": "/api/$1",
+      "check": true
+    },
+    {
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media)/.+",
+      "status": 404,
+      "check": true,
+      "dest": "$0"
+    },
+    {
+      "handle": "resource"
+    },
+    {
+      "src": "/.*",
+      "status": 404
+    },
+    {
+      "handle": "rewrite"
+    },
+    {
+      "src": "^/$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/A4mQRxtCP_VsKSfcm_Teq/index.json",
+      "continue": true
+    },
+    {
+      "src": "^/((?!_next/)(?:.*[^/]|.*))/?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/A4mQRxtCP_VsKSfcm_Teq/$1.json",
+      "continue": true
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(?<nxtPlang>[^/]+?)(?:/)?.json$",
+      "dest": "/[lang]?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(?<nxtPlang>[^/]+?)/newPage(?:/)?.json$",
+      "dest": "/[lang]/newPage?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(?<nxtPlang>[^/]+?)/playground(?:/)?.json$",
+      "dest": "/[lang]/playground?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(?<nxtPlang>[^/]+?)/privacy(?:/)?.json$",
+      "dest": "/[lang]/privacy?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(?<nxtPlang>[^/]+?)/tos(?:/)?.json$",
+      "dest": "/[lang]/tos?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)(?:\\.rsc)(?:/)?$",
+      "dest": "/[lang].rsc?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)(?:/)?$",
+      "dest": "/[lang]?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/newPage(?:\\.rsc)(?:/)?$",
+      "dest": "/[lang]/newPage.rsc?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/newPage(?:/)?$",
+      "dest": "/[lang]/newPage?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/playground(?:\\.rsc)(?:/)?$",
+      "dest": "/[lang]/playground.rsc?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/playground(?:/)?$",
+      "dest": "/[lang]/playground?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/privacy(?:\\.rsc)(?:/)?$",
+      "dest": "/[lang]/privacy.rsc?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/privacy(?:/)?$",
+      "dest": "/[lang]/privacy?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/tos(?:\\.rsc)(?:/)?$",
+      "dest": "/[lang]/tos.rsc?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/(?<nxtPlang>[^/]+?)/tos(?:/)?$",
+      "dest": "/[lang]/tos?nxtPlang=$nxtPlang"
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(.*).json",
+      "headers": {
+        "x-nextjs-matched-path": "/$1"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/_next/data/A4mQRxtCP_VsKSfcm_Teq/(.*).json",
+      "dest": "__next_data_catchall"
+    },
+    {
+      "handle": "hit"
+    },
+    {
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|A4mQRxtCP_VsKSfcm_Teq)/.+",
+      "headers": {
+        "cache-control": "public,max-age=31536000,immutable"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "src": "/index(?:/)?",
+      "headers": {
+        "x-matched-path": "/"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "src": "/((?!index$).*?)(?:/)?",
+      "headers": {
+        "x-matched-path": "/$1"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "handle": "error"
+    },
+    {
+      "src": "/.*",
+      "dest": "/404",
+      "status": 404
+    },
+    {
+      "src": "/.*",
+      "dest": "/500",
+      "status": 500
+    }
+  ],
+  "images": {
+    "domains": [
+      "replicate.delivery",
+      "ameerazam08-flux-1-dev-inpainting-model-beta-gpu.hf.space",
+      "images.ai-generative-fill.com"
+    ],
+    "sizes": [
+      640,
+      750,
+      828,
+      1080,
+      1200,
+      1920,
+      2048,
+      3840,
+      16,
+      32,
+      48,
+      64,
+      96,
+      128,
+      256,
+      384
+    ],
+    "remotePatterns": [],
+    "minimumCacheTTL": 60,
+    "formats": [
+      "image/webp"
+    ],
+    "dangerouslyAllowSVG": false,
+    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+    "contentDispositionType": "inline"
+  },
+  "overrides": {
+    "404.html": {
+      "path": "404",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "500.html": {
+      "path": "500",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "_app.rsc.json": {
+      "path": "_app.rsc",
+      "contentType": "application/json"
+    },
+    "_error.rsc.json": {
+      "path": "_error.rsc",
+      "contentType": "application/json"
+    },
+    "_document.rsc.json": {
+      "path": "_document.rsc",
+      "contentType": "application/json"
+    },
+    "404.rsc.json": {
+      "path": "404.rsc",
+      "contentType": "application/json"
+    },
+    "__next_data_catchall.json": {
+      "path": "__next_data_catchall",
+      "contentType": "application/json"
+    }
+  },
+  "framework": {
+    "version": "14.1.0"
+  },
+  "crons": []
+}

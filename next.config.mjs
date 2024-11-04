@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
+
 const nextConfig = {
   async redirects() {
     return [
@@ -16,7 +19,29 @@ const nextConfig = {
       "images.ai-generative-fill.com",
     ],
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        net: false,
+        tls: false,
+        fs: false,
+        crypto: false,
+        stream: false,
+        util: false,
+        buffer: false,
+      };
+    }
+    return config;
+  },
+  experimental: {
+    serverComponentsExternalPackages: ["@aws-sdk/*"],
+  },
 };
+
+if (process.env.NODE_ENV === "development") {
+  await setupDevPlatform();
+}
 
 export default nextConfig;
 

@@ -1,18 +1,18 @@
 import OpenAI from "openai";
-import fetch from "node-fetch";
-import { ProxyAgent } from "proxy-agent";
+// import fetch from "node-fetch";
+// import { ProxyAgent } from "proxy-agent";
 
-const agent = process.env.VERCEL
-  ? undefined
-  : process.env.HTTPS_PROXY
-  ? new ProxyAgent(process.env.HTTPS_PROXY as any)
-  : undefined;
+// const agent = process.env.VERCEL
+//   ? undefined
+//   : process.env.HTTPS_PROXY
+//   ? new ProxyAgent(process.env.HTTPS_PROXY as any)
+//   : undefined;
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  fetch: ((url: string, options: any) => {
-    return fetch(url, { ...options, agent });
-  }) as any,
+  // fetch: ((url: string, options: any) => {
+  //   return fetch(url, { ...options, agent });
+  // }) as any,
 });
 
 const openaiPrompt = `You are an expert Stable Diffusion inpainting prompt engineer. Your task is to create detailed prompts that help generate images fitting perfectly into existing scenes.

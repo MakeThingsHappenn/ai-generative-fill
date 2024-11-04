@@ -1,10 +1,7 @@
-
+export const runtime = "edge";
 const test = () => {
-  return (
-    <div>
+  return <div></div>;
+};
 
-    </div>
-  )
-}
+export default test;
 
-export default test

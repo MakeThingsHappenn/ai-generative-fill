@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 const TOS = () => {

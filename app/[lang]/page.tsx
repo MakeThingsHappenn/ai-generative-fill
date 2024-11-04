@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import CallSection from "@/components/home/CallSection";
 import CallSection2 from "@/components/home/CallSection2";
 import Discover from "@/components/home/Discover";

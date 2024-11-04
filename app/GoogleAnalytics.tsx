@@ -1,4 +1,5 @@
 "use client";
+export const runtime = "edge";
 
 import Script from "next/script";
 import * as gtag from "../gtag.js";
@@ -35,3 +36,4 @@ const GoogleAnalytics = () => {
 };
 
 export default GoogleAnalytics;
+

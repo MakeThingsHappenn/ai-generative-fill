@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import BaiDuAnalytics from "@/app/BaiDuAnalytics";
 import GoogleAnalytics from "@/app/GoogleAnalytics";
 // import Footer from "@/components/footer/Footer";
@@ -10,19 +12,14 @@ import "@/styles/globals.css";
 import "@/styles/loading.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
-import { Inter as FontSans } from "next/font/google";
 import dynamic from "next/dynamic";
+import { fontSans } from "@/lib/fonts";
 
 // 创建一个动态导入的客户端组件
 const DynamicFooter = dynamic(
   () => import("@/components/footer/DynamicFooter"),
   { ssr: false }
 );
-
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata = {
   title: siteConfig.title,

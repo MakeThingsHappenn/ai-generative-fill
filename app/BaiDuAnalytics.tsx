@@ -1,4 +1,5 @@
 "use client";
+export const runtime = "edge";
 
 import Script from "next/script";
 
@@ -31,3 +32,4 @@ const BaiDuAnalytics = () => {
 };
 
 export default BaiDuAnalytics;
+

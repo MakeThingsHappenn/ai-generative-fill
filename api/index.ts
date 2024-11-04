@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { request } from "@/lib/request";
 
 export const generateImage = (params: any) => {
