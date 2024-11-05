@@ -7,3 +7,8 @@ output_dir = ".vercel/output/static"
 
 [site]
 bucket = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "agf-database" # DB 将是你在代码中使用的变量名
+database_name = "agf-database"
+database_id = "8f5d7892-38a5-4f22-9df3-f8165b6c44a3"

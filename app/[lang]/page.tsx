@@ -11,6 +11,7 @@ import HowItWork from "@/components/home/HowItWork";
 import Pricing from "@/components/home/Pricing";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
 import { HEADER_LINK_HREFS } from "@/config/header";
+import Note from "@/components/note/index";
 
 export default async function HomePage({
   params: { lang },
@@ -28,6 +29,7 @@ export default async function HomePage({
   return (
     <>
       {/* Hero Section */}
+      <Note />
       <Hero locale={dict.Hero} CTALocale={dict.CTAButton} lang={langName} />
       <Feature
         id={getHrefByLabel("Use Cases")}
